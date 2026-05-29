@@ -1,16 +1,36 @@
 from flask import Flask, render_template, redirect, request, jsonify
-
+from google import genai
+from PIL import Image
+from dashscope import MultiModalConversation
 
 app = Flask(__name__)
-
 app.secret_key = "senha123"
-
-@app.route('/')
+client = genai.Client(api_key='AQ.Ab8RN6J9zXrVvhBJ-n-50s-RpBj83ZfT3DnD5Odgwbw8Mmiu_Q')
+@app.route('/teste')
 def pagina_inicial():
     return render_template('login.html')
 
+@app.route('/')
+def popupia():
+    return render_template('assistente.html')
 
 
+@app.route('/analisar', methods=['POST'])
+def analisar_foto():
+    # 1. Pega a foto que veio do HTML
+    foto_do_usuario = request.files['foto']
+    
+    # 2. Abre a imagem para a IA conseguir ver
+    imagem = Image.open(foto_do_usuario.stream)
+    
+    # 3. Envia a foto e a pergunta para o Gemini
+    resposta = client.models.generate_content(
+        model='gemini-2.5-flash',
+        contents=[imagem, "Diga de forma curta se esta pele parece seca ou oleosa."]
+    )
+    
+    # 4. Mostra o texto que a IA respondeu direto na tela
+    return resposta.text
 
 
 
