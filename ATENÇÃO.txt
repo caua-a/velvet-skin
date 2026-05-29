@@ -1,0 +1,8 @@
+na sua pagina cole:
+
+
+{% extends 'base.html' %}
+{% block conteudo %}
+o conteudo deve ficar aqui dentro
+    {% endblock %}
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velvet Skin</title>
+    <link rel="stylesheet" href="../static/css/layout.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">Velvet Skin</div>
+        <nav>
+            <a href="/">Início</a>
+            <a href="/produtos">Produtos</a>
+            <a href="/carrinho">Meu Carrinho</a>
+        </nav>
+    </header>
+
+    <div class="content-container">
+        {% block conteudo %}
+        {% endblock %}
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <span>Entre em contato</span>
+            </div>
+            <div class="footer-socials">
+                <span title="Telefone">📞</span>
+                <span title="Instagram">📸</span>
+                <span title="WhatsApp">💬</span>
+            </div>
+            <div class="footer-credits">
+                &copy; 2026 Velvet Skin.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
