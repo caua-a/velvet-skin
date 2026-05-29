@@ -10,8 +10,9 @@ def pagina_inicial():
     return render_template('login.html')
 
 
-
-
+@app.route('/questionario')
+def pagina_questionario():
+    return render_template('questionario.html')
 
 
 
