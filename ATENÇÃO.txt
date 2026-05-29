@@ -6,3 +6,31 @@ na sua pagina cole:
 o conteudo deve ficar aqui dentro
     {% endblock %}
 
+💻 Cauã: Líder de Back-end & Banco de Dados (Python & SQL)
+O Cauã vai cuidar de toda a "inteligência" por trás do site, garantindo que os dados salvem e apareçam corretamente.
+
+Configuração do Servidor: Criar e gerenciar as rotas no app.py (essas que estruturamos lá em cima).
+
+Modelagem do Banco de Dados (SQL): Criar e estruturar as tabelas (Tabela de Produtos, Tabela de Usuários se tiver login, e a tabela do Carrinho).
+
+Integração do Jinja2: Pegar os dados que vêm do banco via Python e injetar nos HTMLs que as meninas fizerem (usando os loops {% for %}).
+
+Lógica do Carrinho: Criar as rotas para adicionar, remover e listar os produtos do carrinho.
+
+🎨 Luiza: Designer de Interface & Front-end Estático (HTML & CSS)
+A Luiza vai dar vida aos wireframes, focando na identidade visual verde oliva e no capricho estético do e-commerce.
+
+Estruturação das Telas: Criar os arquivos HTML de cada página (index.html, produtos.html, produto_detalhe.html, carrinho.html) herdando a base.html.
+
+Estilização (CSS): Implementar o design limpo, moderno e responsivo (que funcione no celular e no computador) usando a paleta Verde Oliva e tons de branco.
+
+Vitrine e Cards: Estilizar os banners, as seções de produtos diurnos/noturnos e a página de detalhes para que fiquem visualmente idênticas ao wireframe do grupo.
+
+⚙️ Manu: Front-end Dinâmico & Lógica da IA (JavaScript & Integração)
+A Manu vai cuidar da interatividade do site e da funcionalidade principal do projeto: o Pop-up de diagnóstico.
+
+Interatividade com JavaScript (main.js): Criar os scripts para abrir, fechar e avançar os passos do Pop-up da IA (Passo 1, Passo 2 e Passo 3).
+
+Simulação/Lógica da IA: Criar as perguntas do formulário do Passo 2 e programar a lógica que analisa as respostas para sugerir se o usuário precisa de produtos diurnos ou noturnos.
+
+Comunicação com o Back-end (Fetch API / AJAX): Fazer o JavaScript conversar com o Python do Cauã para enviar os dados da análise e atualizar o carrinho sem precisar atualizar a página inteira.
