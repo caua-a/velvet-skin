@@ -3,9 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/carrinho.css">
     <title>Document</title>
 </head>
 <body>
     
+<main class="content-container">
+
+    <h1 class="titulo">Seu Carrinho</h1>
+
+    <!-- DETALHE DO PRODUTO (ESTILO CARD GRANDE) -->
+    <section class="produto-destaque">
+
+        <div class="produto-img">
+            <img src="https://chat.google.com/u/0/api/get_attachment_url?url_type=FIFE_URL&content_type=image%2Fpng&attachment_token=AOo0EEUzIg%2FFXCWev92tRQ5AX5Cvcgy7L7FBkloibtq2ApsigZGZaeLctSH%2B4CfSG1FvwWB0te2lUpxdXhB0zau85kSWliJq69nedYTYiojPtZSV3XPeNERq0jzYgkggLftM3%2FkQDgd0J8x8%2B9s2MFKMfpLmCzYLFnqWejSbqC9uHa8eO%2FcRJpGVinsVfLSa2IMzn5QXRSJl6p6fXoQ4M8LUIvEvbk9X%2B2%2FlkNEenZIli%2FilcAl9WfjwIKOr%2FF8Y1XrR0RnG7Des058gtaIsx%2FJWD9OnEefB47e4wJUgQUh4j%2Fpn42vrs329SFxSJoW0UntM67GbEdlQHCetc09zZZZPaMwUzONyid8Q270OrYesz5vuNslwLIt2wlcnYBEGOw%2FqoZJnrsCspNRnnVYz3KRX6J4wyJuezJAeiN1exgzW7UIXnNAwt2A8uq%2BD9GPqy01SsrhIPt7wsCYhXPdr6WxERvMs20oATpbjYpcNPMYGjeXOmP242yFy0FOpvTSz0%2FiA8HtKgwWViJpktodyPhlW0jRdvCb8WH%2BQ9ZtevvCRu17n3WfOU8xtj9RPovg6%2BYyPkuuRQelFmXob%2Fdi%2BsW92qYyz&allow_caching=true&sz=w512" alt="Produto">
+        </div>
+
+        <div class="produto-info">
+            <h2>Hidratante Facial Calmante</h2>
+
+            <p class="descricao">
+                Fórmula leve com ingredientes naturais que hidratam profundamente
+                e acalmam a pele sensível.
+            </p>
+
+            <ul class="detalhes">
+                <li>✔ Pele sensível</li>
+                <li>✔ Sem parabenos</li>
+                <li>✔ Textura leve</li>
+                <li>✔ Uso diário</li>
+            </ul>
+
+            <div class="quantidade">
+                <button>-</button>
+                <span>1</span>
+                <button>+</button>
+            </div>
+
+            <div class="preco">
+                R$ 79,90
+            </div>
+
+            <button class="add-carrinho">
+                Atualizar carrinho
+            </button>
+        </div>
+
+    </section>
+
+    <!-- ITENS DO CARRINHO -->
+    <div class="carrinho">
+
+        <div class="item">
+            <div class="item-info">
+                <h3>Sérum Vitamina C</h3>
+                <p>Ilumina e uniformiza a pele</p>
+            </div>
+
+            <div class="item-actions">
+                <span>R$ 99,90</span>
+                <button>Remover</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- RESUMO -->
+    <div class="resumo">
+        <h2>Resumo do Pedido</h2>
+        <p>Total: <strong>R$ 179,80</strong></p>
+
+        <button class="finalizar">Finalizar compra</button>
+    </div>
+
+</main>
+    
 </body>
 </html>
+

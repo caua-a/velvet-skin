@@ -1,0 +1,117 @@
+:root {
+    --verde-oliva: #556B2F;
+    --verde-escuro: #3B4D22;
+    --branco: #FFFFFF;
+    --off-white: #F4F6F0;
+    --texto-escuro: #2F3E1B;
+    --cinza-suave: #EAECE6;
+}
+
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fundo da página */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--off-white);
+    color: var(--texto-escuro);
+}
+
+/* Container */
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center; /*colocar no centro*/
+    padding: 20px;
+}
+
+/* Caixa do login */
+.form-box {
+    width: 340px;
+
+    background-color: var(--branco);
+    border: 1px solid var(--cinza-suave);
+    border-radius: 14px;
+
+    padding: 35px;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+
+    display: flex;
+    flex-direction: column;
+
+    transition: transform 0.2s ease;
+}
+
+.form-box:hover {
+    transform: translateY(-3px);
+}
+
+/* Título */
+.form-box h2 {
+    text-align: center;
+    color: var(--verde-oliva);
+    margin-bottom: 20px;
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+/* Labels */
+.form-box label {
+    margin-top: 12px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: var(--texto-escuro);
+}
+
+/* Inputs */
+.form-box input {
+    padding: 11px;
+
+    border: 1px solid var(--cinza-suave);
+    border-radius: 10px;
+
+    background-color: var(--off-white);
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+/* foco input */
+.form-box input:focus {
+    border-color: var(--verde-oliva);
+    background-color: #ffffff;
+}
+
+/* botão */
+.form-box button {
+    margin-top: 20px; /*a grossura do botao cadastrar*/
+    padding: 11px;
+
+    border: none; /*bordinha quando passa o mouse por cima */
+    border-radius: 10px;
+
+    background-color: var(--verde-oliva);
+    color: var(--branco);
+
+    font-weight: bold; /*negrito*/
+    cursor: pointer; /*coloca a maozinha do cursor do mouse*/
+
+    transition: 0.3s;
+}
+
+/* hover botão */
+.form-box button:hover {
+    background-color: var(--verde-escuro);
+    transform: scale(1.03); /*faz p botao cadastrar se mover um pouco para frente*/
+}
