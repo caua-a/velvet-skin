@@ -7,7 +7,7 @@ app.secret_key = "senha123"
 client = genai.Client(api_key='AQ.Ab8RN6J9zXrVvhBJ-n-50s-RpBj83ZfT3DnD5Odgwbw8Mmiu_Q')
 @app.route('/teste')
 def pagina_inicial():
-    return render_template('login.html')
+    return render_template('layout.html')
 
 @app.route('/')
 def popupia():
