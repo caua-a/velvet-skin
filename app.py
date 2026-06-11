@@ -1,19 +1,21 @@
 from flask import Flask, render_template, redirect, request, jsonify
 from google import genai
-
-
+from PIL import Image
 app = Flask(__name__)
 app.secret_key = "senha123"
-client = genai.Client(api_key='AQ.Ab8RN6J9zXrVvhBJ-n-50s-RpBj83ZfT3DnD5Odgwbw8Mmiu_Q')
+client = genai.Client(api_key='AQ.Ab8RN6KeRi89mCM7NUJSPd_bLDVTAmInnY1jtfQnXil5WsP7IA')
 @app.route('/teste')
 def pagina_inicial():
     return render_template('layout.html')
 
 @app.route('/')
-def popupia():
+def index():
+    return render_template('teste.html')
+
+@app.route('/obter-popup')
+def obter_popup():
+    # Envia o seu HTML do formulário quando o JS pedir
     return render_template('assistente.html')
-
-
 @app.route('/analisar', methods=['POST'])
 def analisar_foto():
     # 1. Pega a foto que veio do HTML

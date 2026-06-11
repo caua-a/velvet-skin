@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    
+    <style>
+        /* Fundo escuro que cobre a tela inteira atrás do pop-up */
+        .modal-backdrop {
+            display: none; /* Começa escondido */
+            position: fixed;
+            top: 0; left: 0; 
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente */
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Estilo da caixinha do seu pop-up */
+        .janela-popup {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.3);
+            position: relative;
+            min-width: 300px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Botão de fechar (X) */
+        .botao-fechar {
+            position: absolute;
+            top: 10px; right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+        .botao-fechar:hover { color: #000; }
+
+        /* Estilização rápida para o seu formulário ficar organizado */
+        .janela-popup form { display: flex; flex-direction: column; gap: 15px; }
+        .janela-popup button { cursor: pointer; padding: 8px; }
+    </style>
+</head>
+<body>
+
+    <h1>Análise de Imagens</h1>
+    <p>Clique no botão para tirar ou selecionar a foto.</p>
+
+    <button onclick="abrirPopup()">Tirar Foto</button>
+
+    <div id="container-popup" class="modal-backdrop"></div>
+
+    <script>
+        function abrirPopup() {
+            const container = document.getElementById('container-popup');
+            
+            // Busca o seu formulário pronto lá no Flask
+            fetch('/obter-popup')
+                .then(response => response.text())
+                .then(html => {
+                    container.innerHTML = html; // Injeta o seu HTML aqui dentro
+                    container.style.display = 'flex'; // Exibe o pop-up centralizado
+                });
+        }
+
+        function fecharPopup() {
+            document.getElementById('container-popup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
