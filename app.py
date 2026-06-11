@@ -5,6 +5,9 @@ from dotenv import load_dotenv
 load_dotenv()
 app = Flask(__name__)
 app.secret_key = "senha123"
+
+nfcmgh
+
 client = genai.Client()
 @app.route('/teste')
 def pagina_inicial():
