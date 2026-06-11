@@ -7,7 +7,7 @@ app.secret_key = "senha123"
 
 @app.route('/')
 def pagina_inicial():
-    return render_template('layout.html')
+    return render_template('produtos.html')
 
 
 @app.route('/questionario')
