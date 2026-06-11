@@ -7,7 +7,16 @@ app.secret_key = "senha123"
 
 @app.route('/')
 def pagina_inicial():
-    return render_template('login.html')
+    return render_template('pagina_inicial.html')
+
+@app.route('/')
+def pagina_inicial():
+    return render_template('pagina_cadastro.html')
+
+@app.route('/')
+def pagina_inicial():
+    return render_template('pagina_login.html')
+
 
 
 
