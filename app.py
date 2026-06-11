@@ -1,7 +1,6 @@
 from flask import Flask, render_template, redirect, request, jsonify
 from google import genai
-from PIL import Image
-from dashscope import MultiModalConversation
+
 
 app = Flask(__name__)
 app.secret_key = "senha123"
