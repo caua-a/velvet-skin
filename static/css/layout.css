@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
 
 
-:root {
-            --verde-oliva: #556B2F;
-            --verde-escuro: #3B4D22;
-            --branco: #FFFFFF;
-            --off-white: #F4F6F0;
-            --texto-escuro: #2F3E1B;
-            --cinza-suave: #EAECE6;
-            --off-white:#FAF9F6;
-        }
+    :root {
+                --verde-oliva: #556B2F;
+                --verde-escuro: #3B4D22;
+                --branco: #FFFFFF;
+                --off-white: #F4F6F0;
+                --texto-escuro: #2F3E1B;
+                --cinza-suave: #EAECE6;
+                --off-white:#FAF9F6;
+            }
 
         * {
             box-sizing: border-box;
