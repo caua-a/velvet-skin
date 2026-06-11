@@ -1,0 +1,99 @@
+:root {
+    --verde-oliva: #556B2F;
+    --verde-escuro: #3B4D22;
+    --branco: #FFFFFF;
+    --off-white: #FAF9F6;
+    --texto-escuro: #2F3E1B;
+    --cinza-suave: #EAECE6;
+}
+
+.modal-backdrop {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    background: rgba(47, 62, 27, 0.6); 
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+}
+
+.janela-popup {
+    background-color: var(--off-white);
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0px 10px 30px rgba(47, 62, 27, 0.2);
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid var(--cinza-suave);
+}
+
+.botao-fechar {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--verde-oliva);
+    transition: color 0.2s ease;
+    line-height: 1;
+}
+.botao-fechar:hover { 
+    color: var(--verde-escuro); 
+}
+
+.janela-popup form { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+}
+
+.janela-popup label {
+    color: var(--texto-escuro);
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+
+.janela-popup input[type="file"] {
+    background-color: var(--branco);
+    border: 2px dashed var(--verde-oliva);
+    padding: 20px 15px;
+    border-radius: 8px;
+    color: var(--texto-escuro);
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+.janela-popup input[type="file"]:hover {
+    background-color: var(--cinza-suave);
+    border-color: var(--verde-escuro);
+}
+
+
+.janela-popup button[type="submit"] {
+    background-color: var(--verde-oliva);
+    color: var(--branco);
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0px 4px 12px rgba(85, 107, 47, 0.3);
+    transition: all 0.2s ease;
+}
+.janela-popup button[type="submit"]:hover {
+    background-color: var(--verde-escuro);
+    box-shadow: 0px 6px 16px rgba(59, 77, 34, 0.4);
+    transform: translateY(-1px); /* Leve efeito de subir ao passar o mouse */
+}
+.janela-popup button[type="submit"]:active {
+    transform: translateY(1px);
+}
