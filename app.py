@@ -9,8 +9,19 @@ def pagina_inicial():
     return render_template('layout.html')
 
 @app.route('/')
-def index():
-    return render_template('teste.html')
+def pagina_inicial():
+    return render_template('pagina_inicial.html')
+
+@app.route('/')
+def pagina_inicial():
+    return render_template('pagina_cadastro.html')
+
+@app.route('/')
+def pagina_inicial():
+    return render_template('pagina_login.html')
+
+
+
 
 @app.route('/obter-popup')
 def obter_popup():
