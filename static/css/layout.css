@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+
+
 :root {
             --verde-oliva: #556B2F;
             --verde-escuro: #3B4D22;
@@ -5,6 +8,7 @@
             --off-white: #F4F6F0;
             --texto-escuro: #2F3E1B;
             --cinza-suave: #EAECE6;
+            --off-white:#FAF9F6;
         }
 
         * {
@@ -14,7 +18,7 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Forum';
             background-color: var(--off-white);
             color: var(--texto-escuro);
             display: flex;
@@ -24,8 +28,8 @@
 
         /* --- HEADER --- */
         .main-header {
-            background-color: var(--verde-oliva);
-            color: var(--branco);
+            background-color: var(--off-white);
+            color: var(--texto-escuro);
             padding: 15px 40px;
             display: flex;
             justify-content: space-between;
@@ -34,23 +38,26 @@
         }
 
         .main-header .logo {
-            font-size: 22px;
-            font-weight: bold;
+            font-size: 35px;
+            font-family: 'forum';
             letter-spacing: 2px;
-            text-transform: uppercase;
+
+    
         }
 
         .main-header nav {
             display: flex;
             align-items: center;
+            
             gap: 25px;
         }
 
-        .main-header nav a {
-            color: var(--branco);
+        .main-header nav a, .btn{
+            color: var(--texto-escuro);
             text-decoration: none;
+            font-family: 'forum';
             font-size: 15px;
-            font-weight: 500;
+            font-weight: bold;
             transition: opacity 0.2s;
         }
 
@@ -58,19 +65,11 @@
             opacity: 0.8;
         }
 
-        .nav-ia-btn {
-            background-color: var(--branco);
-            color: var(--verde-oliva) !important;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-weight: bold !important;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        .icons a{   
+            text-decoration: none;
         }
 
-        .nav-ia-btn:hover {
-            background-color: var(--cinza-suave);
-        }
-
+    
         /* --- CONTEÚDO DINÂMICO --- */
         .content-container {
             flex: 1;
@@ -81,6 +80,19 @@
         }
 
         /* --- FOOTER --- */
+
+        .main-footer h2{
+            font-size: 20px;
+        }
+
+        .main-footer ul li {
+            list-style: none;
+            
+        }
+        .main-footer ul li a{
+            text-decoration: none;
+            color: var(--texto-escuro);
+        }
         .main-footer {
             background-color: var(--cinza-suave);
             color: var(--texto-escuro);
