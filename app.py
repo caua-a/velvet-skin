@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 app = Flask(__name__)
 app.secret_key = "senha123"
-client = genai.Client(api_key='AQ.Ab8RN6KEYVnAc7FBsmRz41epAVNqIwDc9QcG5Ohu-BQ5eSEmDA')
+client = genai.Client()
 @app.route('/teste')
 def pagina_inicial():
     return render_template('layout.html')
