@@ -2,13 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
 }
 
 body{
     background-color: #FBF9F4;
     
 }
+
 
 .produto{
     display: flex;
@@ -186,6 +187,179 @@ body{
     border-radius: 50px;
 } */
 
+.dashboard-avaliacoes{
+    max-width: 1150px;
+
+    background: #FFFFFF;
+
+    border-radius: 24px;
+
+    padding: 70px 60px;
+
+    display: grid;
+    grid-template-columns: 1fr 1.4fr 1fr;
+
+    align-items: center;
+
+    border: 1px solid #F5F5F5;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.03);
+
+    margin-bottom: 40px;
+}
+
+/* Notas médias */
+.card-nota-media,
+.card-notas{
+    border-right: 1px solid #F1F1F1;
+}
+
+.card-nota-media,
+.card-notas,
+.card-recomendacao{
+    padding: 0 40px;
+}
+
+
+.card-nota-media{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.card-nota-media h4{
+    font-size:.95rem;
+    color:#777;
+    margin-bottom:10px;
+}
+
+.nota-grande{
+    font-size: 5rem;
+    font-weight: 600;
+    font-family:'Times New Roman', Times, serif;
+    letter-spacing: -3px;
+    color:#2C2C2C;
+}
+
+
+.estrelas-dashboard{
+    color: #D4AF37;
+    font-size:1.4rem;
+    letter-spacing: 3px;
+}
+
+.subtexto-dashboard{
+    color:#7A7A7A;
+}
+
+
+
+
+/* Barra das avaliações */
+.linha-nota{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:18px;
+}
+
+.linha-nota span{
+    font-size:.95rem;
+    color:#555;
+}
+
+.barra{
+    flex:1;
+    height:8px;
+
+    background:#F3F4F6;
+
+    border-radius:50px;
+
+    overflow:hidden;
+}
+
+.preenchimento{
+    height:100%;
+    background:#5D684D;
+    border-radius:50px;
+}
+
+
+/* Coluna de recomendação */
+.card-recomendacao{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.circulo-porcentagem{
+    width: 120px;
+    height: 120px;
+
+    border-radius:50%;
+
+    border:2px solid #1F3556;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:1.8rem;
+    font-weight:700;
+
+    color:#1F3556;
+
+    margin-bottom:18px;
+}
+
+.subtexto-dashboard-recomendacao{
+    margin-top: 12px;
+    max-width: 150px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+
+@media (max-width: 768px) {
+    .dashboard-avaliacoes {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .card-nota-media,
+    .card-notas {
+        border-right: none;
+        border-bottom: 1px solid #ECECEC;
+        padding-bottom: 20px;
+    }
+}
+
+/* Comentários */
+.comentario-item{
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:32px;
+
+    border:1px solid #F3F3F3;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.02);
+
+    transition:.3s;
+}
+
+.comentario-item:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.04);
+}
+
 
 .media-avaliacoes{
     width: 100%;
@@ -205,89 +379,8 @@ body{
     max-width: 926px;
 }
 
-/* --- Seção de Comentários Geral --- */
-.comentarios-avaliacoes {
-    display: flex;
-   
-    flex-direction: column; /* Organiza os blocos um abaixo do outro */
-    align-items: center;
-    width: 100%;
-    max-width: 1200px; /* Largura ideal para não esticar demais na tela */
-    margin: 60px auto;
-    padding: 0 20px;
-}
 
-.titulo-secao-comentarios {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #1A365D; /* Azul escuro sofisticado do modelo */
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-/* --- Dashboard com os 2 Cards Superiores --- */
-.dashboard-avaliacoes {
-    display: flex;
-    width: 100%;
-    gap: 20px;
-    margin-bottom: 25px;
-}
-
-/* Base Comum para os dois cards de cima */
-.card-nota-media, .card-recomendacao {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #FFFFFF;
-    border: 1px solid #EBF1F7;
-    border-radius: 16px;
-    padding: 30px;
-    box-shadow: 0px 4px 12px rgba(99, 116, 133, 0.04);
-}
-
-.nota-grande {
-    font-size: 2.8rem;
-    font-weight: 800;
-    color: #1A365D;
-    margin-bottom: 5px;
-}
-
-.estrelas-dashboard {
-    color: #616161; /* Cor neutra/escura para as estrelas conforme o modelo */
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-}
-
-.subtexto-dashboard {
-    font-size: 0.85rem;
-    color: #616161;
-}
-
-/* Elementos do Segundo Card (Recomendação) */
-.circulo-porcentagem {
-    border: 2px solid #1A365D;
-    border-radius: 50%;
-    width: 65px;
-    height: 65px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 1.1rem;
-    color: #1A365D;
-    margin-bottom: 15px;
-}
-
-.subtexto-dashboard-recomendacao {
-    font-size: 0.9rem;
-    color: #4A4A4A;
-    text-align: center;
-    font-weight: 500;
-}
-
-/* --- Lista de Comentários Individuais --- */
+/* --- Lista de Comentários Individuais ---
 .lista-comentarios {
     width: 100%;
     display: flex;
@@ -306,7 +399,7 @@ body{
 }
 
 /* Coluna da esquerda do autor */
-.autor-info {
+/* .autor-info {
     width: 150px;
     display: flex;
     flex-direction: column;
@@ -323,18 +416,18 @@ body{
 .data-comentario {
     font-size: 0.8rem;
     color: #8C9BA5;
-}
+} */
 
 /* Coluna central com os textos */
-.conteudo-comentario {
+/* .conteudo-comentario {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     gap: 8px;
-    padding-right: 180px; /* Evita que o texto sobreponha o botão de útil na direita */
-}
+    padding-right: 180px; /* Evita que o texto sobreponha o botão de útil na direita 
+} */
 
-.estrelas-comentario {
+/* .estrelas-comentario {
     color: #616161;
     font-size: 0.9rem;
 }
@@ -365,7 +458,42 @@ body{
 
 .recomenda-selo span {
     font-size: 1rem;
+} */ 
+
+
+/* ======================================
+   SEÇÃO AVALIAÇÕES
+====================================== */
+
+
+
+.comentarios-avaliacoes{
+    max-width: 1200px;
+    margin: 120px auto;
+    padding: 0 20px;
 }
+
+.comentarios-avaliacoes p{
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: #6B7280;
+}
+
+.titulo-secao-comentarios{
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    color: #2C2C2C;
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.comentarios-avaliacoes > p{
+    text-align: center;
+    color: #6B7280;
+    margin-bottom: 50px;
+}
+
 
 /* Coluna da direita do voto útil */
 .utilidade-comentario {
@@ -375,19 +503,19 @@ body{
     transform: translateY(-50%);
 }
 
-.btn-utilidade {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background-color: #FFFFFF;
-    border: 1px solid #E2E8F0;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    color: #4A5568;
-    cursor: pointer;
-    transition: all 0.2s;
+
+.btn-utilidade{
+    background:#FAFAFA;
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    color:#555;
 }
+
 
 .btn-utilidade:hover {
     background-color: #F8FAFC;
@@ -398,24 +526,35 @@ body{
     font-size: 1rem;
 }
 
-/* --- Botão Inferior de Ver Mais --- */
-.btn-ver-mais {
-    background-color: #FFFFFF;
-    border: 1px solid #1A365D;
-    color: #1A365D;
-    padding: 12px 40px;
-    border-radius: 25px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    margin-top: 30px;
-    cursor: pointer;
-    transition: all 0.3s;
+.foto-comentario{
+    border-radius: 200px;
+    height: 150px;
+    width: 150px;
+    background-color: #6B7280;
 }
 
-.btn-ver-mais:hover {
-    background-color: #1A365D;
-    color: #FFFFFF;
+/* --- Botão Inferior de Ver Mais --- */
+.btn-ver-mais{
+    background:transparent;
+
+    border:1px solid #4E593E;
+
+    color:#4E593E;
+
+    padding:14px 42px;
+
+    border-radius:999px;
+
+    font-weight:600;
+
+    letter-spacing:.5px;
+
+    transition:.3s;
+}
+
+.btn-ver-mais:hover{
+    background:#4E593E;
+    color:#fff;
 }
 
 
