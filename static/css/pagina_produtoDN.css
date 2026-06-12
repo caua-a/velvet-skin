@@ -1,0 +1,140 @@
+/*Organizou os espaçamentos entre as imagens e letras, 
+sempre usar!!!*/
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+}
+
+/*Cor do fundo, e a fonte do site geral (body)*/
+body{
+font-family: Arial;
+background-color:#f8f6ef;
+}
+
+.Titulo-Secao{
+
+display:flex; /*o flex coloca as coisas na mesma linha!! */
+justify-content:center; /*centraliza ne*/
+align-items:center; /*deixa alinhado no meio correto*/
+}
+
+.Secao-Diurna{
+    background-color: #faf8f0;
+    padding-bottom: 40px;
+}
+
+
+.Secao-Diurna h1{
+    color: #53602c;
+}
+
+
+
+/* ============================
+        PARTE NOTURNA
+============================ */
+
+.Secao-Noturna{
+    background-color: #3f4d22;
+    padding-bottom: 40px;
+}
+
+
+
+.Secao-Noturna h1{
+    color: white;
+}
+
+.Secao-Noturna .Titulo-Secao img{
+    filter: brightness(5);
+}
+
+/* ============================
+        ORGANIZAÇÃO DOS CARDS
+============================ */
+
+.Lista-Produtos{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+
+
+/* ============================
+        CARD DO PRODUTO
+============================ */
+
+.Produto{
+    width: 220px;
+    min-height: 300px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+/* cards da parte noturna */
+
+.Secao-Noturna .Produto{
+    background-color: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+
+/* imagem do produto */
+
+.Produto img{
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    align-self: center;
+}
+
+/* nome do produto */
+.Produto h2{
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 15px;
+    color: #444;
+}
+
+.Secao-Noturna .Produto h2{
+    color:white;
+}
+
+/* preço */
+
+.Produto p{
+    font-size: 14px;
+    margin-top: 8px;
+    color:#555;
+}
+
+.Secao-Noturna .Produto p{
+    color:white;
+}
+
+/* ============================
+        BOTÃO
+============================ */
+
+.Produto button{
+    margin-top: 15px;
+    height: 35px;
+    background-color: transparent;
+    border: 1px solid #cfc8b5;
+    color:#555;
+    cursor:pointer;
+    font-size: 11px;
+}
+
+.Secao-Noturna button{
+    color:white;
+    border-color:rgba(255,255,255,0.4);
+}
