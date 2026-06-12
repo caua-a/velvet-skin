@@ -1,0 +1,238 @@
+/* ================= CONFIGURAÇÕES GERAIS / RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #FBF9F4; /* Tom off-white/bege claro de fundo */
+    color: #2F3B1C; /* Verde bem escuro para as letras principais */
+    padding: 40px;
+}
+
+/* ================= TOPO DO CATÁLOGO ================= */
+.topo-catalogo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto 30px auto;
+}
+
+.topo-catalogo h1 {
+    font-family: 'Georgia', serif; /* Fonte serifada para o logo/título */
+    font-size: 2rem;
+    font-weight: 400;
+    color: #1a1a1a;
+}
+
+/* Container dos botões superiores */
+.filtros-rapidos {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-filtro {
+    background-color: #FFF;
+    border: 1px solid #E6E2DA;
+    color: #666;
+    padding: 8px 18px;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* Estado do botão ativo (Selecionado) */
+.btn-filtro.ativo {
+    background-color: #EAE3D5; /* Bege mais escuro idêntico à imagem */
+    color: #2F3B1C;
+    border-color: #DCD4C5;
+}
+
+/* ================= ESQUELETO DO CONTEÚDO PRINCIPAL ================= */
+.conteudo-principal {
+    display: flex;
+    gap: 40px; /* Espaço entre a barra lateral e a grade de produtos */
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+/* ================= BARRA LATERAL (FILTROS) ================= */
+.barra-lateral {
+    width: 240px;
+    background-color: #FFF;
+    border: 1px solid #F0ECE3;
+    border-radius: 6px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.grupo-filtro h3 {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.grupo-filtro ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.grupo-filtro label {
+    font-size: 0.85rem;
+    color: #555;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Customização leve do seletor circular */
+.grupo-filtro input[type="radio"] {
+    accent-color: #4C5933; /* Força a bolinha ativa a ficar verde oliva */
+    cursor: pointer;
+}
+
+/* Input Range (Faixa de Preço) */
+.seletor-preco {
+    width: 100%;
+    accent-color: #4C5933;
+    margin-bottom: 8px;
+}
+
+.valores-preco {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #888;
+}
+
+/* Botão FILTRAR da barra lateral */
+.btn-filtrar-lateral {
+    background-color: #4C5933; /* Verde oliva da paleta da marca */
+    color: #FFF;
+    border: none;
+    padding: 12px 0;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s;
+}
+
+.btn-filtrar-lateral:hover {
+    background-color: #3B4626;
+}
+
+/* ================= GRADE DE PRODUTOS ================= */
+.grade-produtos {
+    flex: 1; /* Ocupa todo o resto do espaço disponível à direita */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Divide perfeitamente em 3 colunas iguais */
+    gap: 20px;
+}
+
+/* ================= CARD DE PRODUTO INDIVIDUAL ================= */
+.produto-card {
+    background-color: #FFF;
+    border: 1px solid #F0ECE3;
+    border-radius: 6px;
+    padding: 20px;
+    position: relative; /* Necessário para posicionar o solzinho flutuando */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Ícone do solzinho posicionado no canto superior direito */
+.icone-tempo {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 0.9rem;
+    color: #D1A153;
+}
+
+/* Imagem centralizada */
+.produto-card img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: contain;
+    margin: 15px 0;
+}
+
+/* Nome do cosmético */
+.produto-card h2 {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 8px;
+    width: 100%;
+    text-align: left; /* Alinhado à esquerda como na foto */
+}
+
+/* Valor */
+.produto-card .preco {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #1a1a1a;
+    width: 100%;
+    text-align: left; /* Alinhado à esquerda */
+    margin-bottom: 15px;
+}
+
+/* Botão VER MAIS de cada card */
+.produto-card .btn-ver-mais {
+    background-color: #4C5933;
+    color: #FFF;
+    border: none;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.produto-card .btn-ver-mais:hover {
+    background-color: #3B4626;
+}
+
+/* ================= BOTÃO DE RODAPÉ ================= */
+.rodape-acao {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    width: 100%;
+}
+
+.btn-noturnos-rodape {
+    background-color: #2D3621; /* Um tom de verde ainda mais fechado e noturno */
+    color: #FFF;
+    border: none;
+    padding: 14px 40px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-noturnos-rodape:hover {
+    background-color: #1F2516;
+}

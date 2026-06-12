@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/pagina_catalogo.css">
+    <title>Catálogo - Produtos Noturnos</title>
+</head>
+<body>
+
+    <header class="topo-catalogo">
+        <h1>Catálogo</h1>
+        <div class="filtros-rapidos">
+            <button class="btn-filtro">Todos</button>
+            <button class="btn-filtro">Diurnos ☀️</button>
+            <button class="btn-filtro ativo">Noturnos 🌙</button>
+        </div>
+    </header>
+
+    <main class="conteudo-principal">
+
+        <aside class="barra-lateral">
+            <div class="grupo-filtro">
+                <h3>Categorias</h3>
+                <ul>
+                    <li><label><input type="radio" name="categoria"> Limpeza</label></li>
+                    <li><label><input type="radio" name="categoria"> Hidratação</label></li>
+                    <li><label><input type="radio" name="categoria"> Séruns</label></li>
+                    <li><label><input type="radio" name="categoria"> Tratamentos</label></li>
+                    <li><label><input type="radio" name="categoria"> Protetor Solar</label></li>
+                    <li><label><input type="radio" name="categoria"> Máscaras</label></li>
+                    <li><label><input type="radio" name="categoria"> Kits</label></li>
+                </ul>
+            </div>
+
+            <div class="grupo-filtro">
+                <h3>Faixa de preço</h3>
+                <input type="range" min="0" max="500" value="500" class="seletor-preco">
+                <div class="valores-preco">
+                    <span>R$ 0</span>
+                    <span>R$ 500</span>
+                </div>
+            </div>
+
+            <button class="btn-filtrar-lateral">FILTRAR</button>
+        </aside>
+
+        <section class="grade-produtos">
+            
+            <article class="produto-card">
+                <span class="icone-tempo">🌙</span>
+                <img src="../img/serum retinol noturno.png" alt="Sérum Retinol">
+                <h2>Sérum Retinol</h2>
+                <p class="preco">R$ 159,90</p>
+                <button class="btn-ver-mais">VER MAIS</button>
+            </article>
+
+            <article class="produto-card">
+                <span class="icone-tempo">🌙</span>
+                <img src="../img/creme hidratante bebe.png" alt="Creme Noturno">
+                <h2>Creme Noturno</h2>
+                <p class="preco">R$ 139,90</p>
+                <button class="btn-ver-mais">VER MAIS</button>
+            </article>
+
+            <article class="produto-card">
+                <span class="icone-tempo">🌙</span>
+                <img src="../img/oleo facial nutritivo.png" alt="Óleo Facial">
+                <h2>Óleo Facial</h2>
+                <p class="preco">R$ 119,90</p>
+                <button class="btn-ver-mais">VER MAIS</button>
+            </article>
+
+            <article class="produto-card">
+                <span class="icone-tempo">🌙</span>
+                <img src="../img/argiloa.png" alt="Máscara de Argila">
+                <h2>Máscara de Argila</h2>
+                <p class="preco">R$ 89,90</p>
+                <button class="btn-ver-mais">VER MAIS</button>
+            </article>
+
+        </section>
+
+    </main>
+
+    <div class="rodape-acao">
+        <button class="btn-noturnos-rodape">VER PRODUTOS DIURNOS ☀️</button>
+    </div>
+
+</body>
+</html>
