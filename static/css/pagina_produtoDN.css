@@ -1,140 +1,163 @@
-/*Organizou os espaçamentos entre as imagens e letras, 
-sempre usar!!!*/
-*{
- margin:0;
- padding:0;
- box-sizing:border-box;
+/* ================= CONFIGURAÇÕES GERAIS ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/*Cor do fundo, e a fonte do site geral (body)*/
-body{
-font-family: Arial;
-background-color:#f8f6ef;
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #FBF9F6; /* Cor de fundo clarinha do topo */
+    color: #333;
+    -webkit-font-smoothing: antialiased;
 }
 
-.Titulo-Secao{
-
-display:flex; /*o flex coloca as coisas na mesma linha!! */
-justify-content:center; /*centraliza ne*/
-align-items:center; /*deixa alinhado no meio correto*/
+/* Container que abraça as duas seções */
+.produtos-container {
+    width:100%;
+    
+    margin: 0 auto;
+    
 }
 
-.Secao-Diurna{
-    background-color: #faf8f0;
-    padding-bottom: 40px;
+/* Título de cada Seção (Alinha o ícone com o texto) */
+.titulo-secao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
 }
 
-
-.Secao-Diurna h1{
-    color: #53602c;
+.titulo-secao h1 {
+    font-family: 'Georgia', serif; /* Fonte elegante para os títulos principais */
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 2px;
 }
 
-
-
-/* ============================
-        PARTE NOTURNA
-============================ */
-
-.Secao-Noturna{
-    background-color: #3f4d22;
-    padding-bottom: 40px;
-}
-
-
-
-.Secao-Noturna h1{
-    color: white;
-}
-
-.Secao-Noturna .Titulo-Secao img{
-    filter: brightness(5);
-}
-
-/* ============================
-        ORGANIZAÇÃO DOS CARDS
-============================ */
-
-.Lista-Produtos{
+/* Container que alinha os 4 produtos lado a lado */
+.lista-produtos {
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Garante que quebre a linha em telas menores (celular) */
 }
 
 
-
-/* ============================
-        CARD DO PRODUTO
-============================ */
-
-.Produto{
-    width: 220px;
-    min-height: 300px;
-    border: 1px solid #ddd;
-    padding: 20px;
-    background-color: white;
+/* ================= CARD DE PRODUTO INDIVIDUAL ================= */
+.produto-card {
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    padding: 25px 20px;
+    width: 260px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* cards da parte noturna */
-
-.Secao-Noturna .Produto{
-    background-color: transparent;
-    border: 1px solid rgba(255,255,255,0.3);
+/* Efeito sutil ao passar o mouse */
+.produto-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-
-/* imagem do produto */
-
-.Produto img{
-    width: 120px;
-    height: 120px;
+/* Imagem do produto */
+.produto-card img {
+    max-width: 100%;
+    height: 160px;
     object-fit: contain;
-    align-self: center;
+    margin-bottom: 25px;
 }
 
-/* nome do produto */
-.Produto h2{
-    font-size: 14px;
-    font-weight: 400;
-    margin-top: 15px;
-    color: #444;
+/* Nome do Produto */
+.produto-card h2 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: inherit;
+    margin-bottom: 10px;
+    min-height: 36px; /* Garante alinhamento mesmo se o nome quebrar linha */
 }
 
-.Secao-Noturna .Produto h2{
-    color:white;
+/* Preço */
+.produto-card .preco {
+    font-size: 0.95rem;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
-/* preço */
-
-.Produto p{
-    font-size: 14px;
-    margin-top: 8px;
-    color:#555;
-}
-
-.Secao-Noturna .Produto p{
-    color:white;
-}
-
-/* ============================
-        BOTÃO
-============================ */
-
-.Produto button{
-    margin-top: 15px;
-    height: 35px;
+/* Botão VER MAIS */
+.btn-ver-mais {
+    width: 100%;
     background-color: transparent;
-    border: 1px solid #cfc8b5;
-    color:#555;
-    cursor:pointer;
-    font-size: 11px;
+    border: 1px solid currentColor;
+    padding: 10px 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.2s, color 0.2s;
 }
 
-.Secao-Noturna button{
-    color:white;
-    border-color:rgba(255,255,255,0.4);
+
+/* ================= ESTILIZAÇÃO DA SEÇÃO DIURNA ================= */
+.secao-diurna {
+    background-color: #FBF9F6; 
+    padding: 20px 30px;
+    padding-bottom: 60px;
+}
+
+.secao-diurna .titulo-secao h1 {
+    color: #4A5343; /* Tom verde oliva escuro para as letras diurnas */
+}
+
+.secao-diurna .produto-card {
+    background-color: #FFF; /* Cards diurnos são brancos */
+    border: 1px solid #EAE6DF;
+}
+
+.secao-diurna .produto-card h2 {
+    color: #555;
+}
+
+.secao-diurna .btn-ver-mais {
+    color: #4A5343;
+    border-color: #4A5343;
+}
+
+.secao-diurna .btn-ver-mais:hover {
+    background-color: #4A5343;
+    color: #FFF;
+}
+
+
+/* ================= ESTILIZAÇÃO DA SEÇÃO NOTURNA ================= */
+.secao-noturna {
+    background-color: #2D3626; /* Verde floresta bem escuro idêntico à imagem */
+    padding: 40px 30px;
+    color: #ECE7DF; /* Texto clarinho para dar contraste no fundo escuro */
+    width: 100%;
+}
+
+.secao-noturna .titulo-secao h1 {
+    color: #ECE7DF;
+}
+
+/* Borda dos cards noturnos adaptada para o fundo escuro */
+.secao-noturna .produto-card {
+    border: 1px solid rgba(236, 231, 223, 0.15); 
+}
+
+.secao-noturna .btn-ver-mais {
+    color: #ECE7DF;
+    border-color: #ECE7DF;
+}
+
+.secao-noturna .btn-ver-mais:hover {
+    background-color: #ECE7DF;
+    color: #2D3626;
 }
