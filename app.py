@@ -6,25 +6,23 @@ load_dotenv()
 app = Flask(__name__)
 app.secret_key = "senha123"
 
-client = genai.Client()
-@app.route('/teste')
-def pagina_inicial():
-    return render_template('layout.html')
+client = genai.Client(api_key='AQ.Ab8RN6KYfWXHu9UhOQbR9mOVf3YPVm9NJN4rxlE2p7uSSVmq6A')
+
 
 @app.route('/')
 def pagina_inicial():
-    return render_template('pagina_inicial.html')
-
-@app.route('/')
-def pagina_inicial():
-    return render_template('pagina_cadastro.html')
-
-@app.route('/')
-def pagina_inicial():
-    return render_template('pagina_login.html')
+    return render_template('index.html')
 
 
 
+@app.route('/cadastro/cadastrar')
+def cadastrando():
+    nome = request.form.get('nome')
+    email = request.form.get('email')
+    telefone = request.form.get('telefone')
+    endereco = request.form.get('endereco')
+    senhapri = request.form.get('senha')
+    senhaconf = request.form.get('confirmar-senha')
 
 @app.route('/obter-popup')
 def obter_popup():

@@ -1,12 +1,15 @@
+{% extends 'layout.html' %}
+{% block conteudo %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VelvetSkin</title>
+    <link rel="stylesheet" href="../static/css/index.css">
 </head>
 <body>
-    
+    <!-- PAGINA INICIAL -->
    <section class="carrossel">
 
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -38,7 +41,7 @@
         <div class="carousel-inner">
 
             <div class="carousel-item active">
-                <img src="../img/skincare-moça1.jpg" class="d-block w-100"
+                <img src="../img/skincare-moça2.jpg" class="d-block w-100"
                     alt="Modelo Velvet Skin 1">
             </div>
             <div class="carousel-item">
@@ -139,5 +142,13 @@
         </div>
     </section>
 
+
+
+
+
+
+
 </body>
 </html>
+
+{% endblock %}
