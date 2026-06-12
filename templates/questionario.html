@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de questionário</title>
+    <link rel="stylesheet" href="../static/css/questionario.css">
+    
+</head>
+
+<body>
+
+<div class="pergunta-1 ativa">
+
+    <h2 class="pergunta">
+        1. Como você descreveria sua pele?
+    </h2>
+
+    <input type="radio" name="pele" id="oleosa" value="Oleosa">
+    <label class="opcao" for="oleosa">Oleosa</label>
+
+    <input type="radio" name="pele" id="seca" value="Seca">
+    <label class="opcao" for="seca">Seca</label>
+
+    <input type="radio" name="pele" id="mista" value="Mista">
+    <label class="opcao" for="mista">Mista</label>
+
+    <input type="radio" name="pele" id="normal" value="Normal">
+    <label class="opcao" for="normal">Normal</label>
+
+    <button class="botao-proxima" onclick="proxima()">
+        PRÓXIMA
+    </button>
+
+    <button class="botao-voltar" onclick="voltar()">
+        VOLTAR
+    </button>
+
+</div>
+
+<div class="pergunta-2">
+
+    <h2 class="pergunta">
+        2. Você sente sua pele sensível com frequência?
+    </h2>
+
+    <input type="radio" name="pele" id="sim-muito" value="Sim, muito">
+    <label class="opcao" for="oleosa">Sim, muito</label>
+
+    <input type="radio" name="pele" id="as-vezes" value="Às vezes">
+    <label class="opcao" for="seca">Às vezes</label>
+
+    <input type="radio" name="pele" id="raramente" value="Raramente">
+    <label class="opcao" for="mista">Raramente</label>
+
+    <input type="radio" name="pele" id="nunca" value="Nunca">
+    <label class="opcao" for="normal">Nunca</label>
+
+    <button class="botao-proxima" onclick="proxima()">
+        PRÓXIMA
+    </button>
+
+    <button class="botao-voltar" onclick="voltar()">
+        VOLTAR
+    </button>
+
+</div>
+
+    <script src="../static/script/questionarios.js"></script>
+</body>
+</html>

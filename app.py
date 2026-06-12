@@ -9,7 +9,7 @@ app.secret_key = "senha123"
 client = genai.Client()
 @app.route('/teste')
 def pagina_inicial():
-    return render_template('layout.html')
+    return render_template('produtos.html')
 
 @app.route('/')
 def pagina_inicial():
@@ -47,6 +47,10 @@ def analisar_foto():
     # 4. Mostra o texto que a IA respondeu direto na tela
     return resposta.text
 
+
+@app.route('/questionario')
+def pagina_questionario():
+    return render_template('questionario.html')
 
 
 
