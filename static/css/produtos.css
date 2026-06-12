@@ -208,7 +208,7 @@ body{
 /* --- Seção de Comentários Geral --- */
 .comentarios-avaliacoes {
     display: flex;
-    background-color: #faf9f6;
+   
     flex-direction: column; /* Organiza os blocos um abaixo do outro */
     align-items: center;
     width: 100%;
