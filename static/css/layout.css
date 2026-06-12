@@ -22,6 +22,7 @@ body {
     background-color: var(--off-white);
     color: var(--texto-escuro);
     display: flex;
+    
     flex-direction: column;
     min-height: 100vh;
 }
