@@ -242,6 +242,23 @@ body{
     color:#2C2C2C;
 }
 
+.avaliacao-produto{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.estrelas-dashboard{
+    color: #D4A93A;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.frase-avaliacao{
+    font-size: 0.9rem;
+    color: #6B7280;
+    margin: 0;
+}
 
 .estrelas-dashboard{
     color: #D4AF37;
@@ -380,87 +397,6 @@ body{
 }
 
 
-/* --- Lista de Comentários Individuais ---
-.lista-comentarios {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.comentario-item {
-    display: flex;
-    background-color: #FFFFFF;
-    border: 1px solid #EBF1F7;
-    border-radius: 16px;
-    padding: 24px;
-    box-shadow: 0px 4px 12px rgba(99, 116, 133, 0.04);
-    position: relative;
-}
-
-/* Coluna da esquerda do autor */
-/* .autor-info {
-    width: 150px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    flex-shrink: 0;
-}
-
-.nome-autor {
-    font-size: 0.95rem;
-    color: #1A365D;
-    font-weight: 700;
-}
-
-.data-comentario {
-    font-size: 0.8rem;
-    color: #8C9BA5;
-} */
-
-/* Coluna central com os textos */
-/* .conteudo-comentario {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding-right: 180px; /* Evita que o texto sobreponha o botão de útil na direita 
-} */
-
-/* .estrelas-comentario {
-    color: #616161;
-    font-size: 0.9rem;
-}
-
-.titulo-comentario {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #1A365D;
-    margin: 0;
-}
-
-.texto-comentario {
-    font-size: 0.95rem;
-    color: #4A5568;
-    line-height: 1.5;
-    margin: 0;
-}
-
-.recomenda-selo {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.85rem;
-    color: #1A365D;
-    margin-top: 10px;
-    font-weight: 500;
-}
-
-.recomenda-selo span {
-    font-size: 1rem;
-} */ 
-
-
 /* ======================================
    SEÇÃO AVALIAÇÕES
 ====================================== */
@@ -494,6 +430,158 @@ body{
     margin-bottom: 50px;
 }
 
+/* Cabeçalho */
+.cabecalho-avaliacoes{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin:40px 0 20px;
+}
+
+/* Card */
+.comentario-card{
+    background:#fff;
+
+    border-radius:24px;
+
+    padding:32px;
+
+    display:flex;
+    gap:24px;
+
+    border:1px solid #F1F1F1;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.03);
+}
+
+/* Avatar */
+.avatar-cliente{
+    flex-shrink:0;
+}
+
+.avatar-cliente img{
+    width:90px;
+    height:90px;
+    background-color: #3B442E;
+    border-radius:50%;
+    
+    object-fit:cover;
+}
+
+/* Conteudo */
+.conteudo-comentario{
+    flex:1;
+}
+
+/* Topo */
+.topo-comentario{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+
+    margin-bottom:10px;
+}
+
+/* Nome e Selo */
+.cliente-info{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.cliente-info h4{
+    margin:0;
+    color:#1F3556;
+}
+
+.cliente-verificado{
+    background:#F3F2EC;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    font-size:.8rem;
+
+    color:#5D684D;
+}
+
+/* Estrelas */
+.estrelas-comentario{
+    color:#D4AF37;
+
+    letter-spacing:3px;
+
+    margin-bottom:12px;
+}
+
+/* Título */
+.titulo-comentario{
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:2rem;
+
+    color:#1F3556;
+
+    margin-bottom:12px;
+}
+
+.data-comentario{
+    color:#6B7280;
+    font-size:.9rem;
+}
+
+/* Texto */
+.texto-comentario{
+    color:#6B7280;
+
+    line-height:1.8;
+
+    max-width:700px;
+}
+
+/* Tags */
+.tags-comentario{
+    display:flex;
+    gap:12px;
+
+    margin-top:20px;
+}
+
+.tags-comentario span{
+    background:#F7F6F2;
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    color:#5D684D;
+
+    font-size:.9rem;
+}
+
+.tag-avaliacao{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    background:#F5F4EF;
+
+    padding:12px 18px;
+
+    border-radius:999px;
+
+    color:#5D684D;
+
+    font-size:.9rem;
+
+    width:fit-content;
+}
+
+.icone-tag{
+    font-size:18px !important;
+}
 
 /* Coluna da direita do voto útil */
 .utilidade-comentario {
@@ -503,6 +591,17 @@ body{
     transform: translateY(-50%);
 }
 
+.btn-util{
+    margin-top:25px;
+
+    border:none;
+
+    background:transparent;
+
+    color:#5D684D;
+
+    cursor:pointer;
+}
 
 .btn-utilidade{
     background:#FAFAFA;
@@ -531,6 +630,7 @@ body{
     height: 150px;
     width: 150px;
     background-color: #6B7280;
+    border: 2px solid red;
 }
 
 /* --- Botão Inferior de Ver Mais --- */
@@ -544,6 +644,8 @@ body{
     padding:14px 42px;
 
     border-radius:999px;
+
+    margin-top: 40px;
 
     font-weight:600;
 
