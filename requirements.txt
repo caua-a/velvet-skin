@@ -1,2 +1,4 @@
 flask
 mysql-connector-python
+Pillow
+python-dotenv

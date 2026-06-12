@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+{% block conteudo %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/pagina_login.css">
+    <title>Login</title>
+</head>
+<body>
+
+    <section class="login">
+
+        <h1>Login</h1>
+
+        <div class="campo">
+
+            <label class="label" for="email">
+                E-mail
+            </label>
+
+            <input class="input"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Digite seu e-mail">
+
+        </div>
+
+        <div class="campo">
+
+            <label class="label" for="senha">
+                Senha
+            </label>
+
+            <input class="input"
+                type="password"
+                id="senha"
+                name="senha"
+                placeholder="Digite sua senha">
+
+        </div>
+
+        <p class="esqueceu-senha">
+            Esqueceu sua senha?
+        </p>
+
+        <button class="botao-cadastrar" type="submit">
+            ENTRAR
+        </button>
+
+        <p class="cadastro-link">
+            Não tem uma conta?
+            <a href="cadastro.html">
+                Cadastre-se
+            </a>
+        </p>
+
+        <a href="recuperar_senha.html" class="esqueceu-senha">
+        Esqueceu sua senha?
+        </a>
+
+    </section>
+
+</body>
+</html>
+{% endblock %}

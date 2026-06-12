@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+
+</head>
+<body>
+
+    <h1>Análise de Imagens</h1>
+    <p>Clique no botão para tirar ou selecionar a foto.</p>
+
+    <button onclick="abrirPopup()">Tirar Foto</button>
+
+    <div id="container-popup" class="modal-backdrop"></div>
+
+    <script>
+        function abrirPopup() {
+            const container = document.getElementById('container-popup');
+            
+            // Busca o seu formulário pronto lá no Flask
+            fetch('/obter-popup')
+                .then(response => response.text())
+                .then(html => {
+                    container.innerHTML = html; // Injeta o seu HTML aqui dentro
+                    container.style.display = 'flex'; // Exibe o pop-up centralizado
+                });
+        }
+
+        function fecharPopup() {
+            document.getElementById('container-popup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

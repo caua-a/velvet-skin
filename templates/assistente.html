@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/assistente.css">
+</head>
+<body>
+<div class="janela-popup">
+    <span class="botao-fechar" onclick="fecharPopup()">&times;</span>
+    
+    <form action="/analisar" method="post" enctype="multipart/form-data">
+        <label for="foto">Escolha sua foto para análise</label>
+        <input type="file" name="foto" id="foto" capture="user" accept="image/*" required>
+        <button type="submit">Analisar</button>
+    </form>
+</div>
+</body>
+</html>

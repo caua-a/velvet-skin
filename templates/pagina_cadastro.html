@@ -1,0 +1,116 @@
+{% extends 'layout.html' %}
+{% block conteudo %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/pagina_cadastro.css">
+    <title>Cadastro</title>
+</head>
+<body>
+
+    <form class="formulario">
+
+        <h1 class="titulo">Cadastro</h1>
+
+        <div class="campo">
+
+            <label class="label" for="nome">
+                Nome Completo
+            </label>
+
+            <input class="input"
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="Digite seu nome">
+
+        </div>
+
+
+        <div class="campo">
+
+            <label class="label" for="email">
+                E-mail
+            </label>
+
+            <input class="input"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Digite seu e-mail">
+
+        </div>
+
+
+        <div class="campo">
+
+            <label class="label" for="telefone">
+                Telefone
+            </label>
+
+            <input class="input"
+                type="tel"
+                id="telefone"
+                name="telefone"
+                placeholder="(16) 99999-9999">
+
+        </div>
+
+
+        <div class="campo">
+
+            <label class="label" for="endereco">
+                Endereço
+            </label>
+
+            <input class="input"
+                type="text"
+                id="endereco"
+                name="endereco"
+                placeholder="Digite seu endereço">
+
+        </div>
+
+
+        <div class="campo">
+
+            <label class="label" for="senha">
+                Senha
+            </label>
+
+            <input class="input"
+                type="password"
+                id="senha"
+                name="senha"
+                placeholder="Digite sua senha">
+
+        </div>
+
+
+        <div class="campo">
+
+            <label class="label" for="confirmar-senha">
+                Confirmar Senha
+            </label>
+
+            <input class="input"
+                type="password"
+                id="confirmar-senha"
+                name="confirmar-senha"
+                placeholder="Digite novamente">
+
+        </div>
+
+
+        <button class="botao-cadastrar" type="submit">
+            Cadastrar
+        </button>
+
+    </form>
+
+</body>
+</html>
+{% endblock %}
