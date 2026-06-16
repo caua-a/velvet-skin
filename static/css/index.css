@@ -27,17 +27,20 @@ body {
 
 .apresentacao {
     display: flex;
-    min-height: 85vh;
+    
     align-items: center;
-    padding: 100px 0 0 8%;
-    position: relative;
+    min-height: 85vh;
+    padding-left: 8%;
 }
 
 .texto-principal {
-    flex: 1;
-    max-width: 500px;
-    z-index: 2;
-    padding-right: 20px;
+    width: 35%;
+}
+
+.carrossel {
+    width: 55%;
+    height: 85vh;
+    margin-left: auto;
 }
 
 .titulo-principal {
@@ -93,14 +96,7 @@ body {
     color: white;
 }
 
-.carrossel {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 55%;
-    height: 85vh;
-    z-index: 1;
-}
+
 
 .carousel, .carousel-inner, .carousel-item {
     height: 100%;
@@ -113,23 +109,7 @@ body {
     object-position: center bottom;
 }
 
-.carrossel::after {
-    content: 'Analisar minha pele 🔲'; 
-    position: absolute;
-    bottom: 40px;
-    right: 8%;
-    background-color: var(--cor-verde);
-    color: white;
-    padding: 15px 25px;
-    border-radius: 12px;
-    font-size: 14px;
-    font-weight: 500;
-    z-index: 5;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+
 
 .carousel-indicators, .carousel-control-prev, .carousel-control-next {
     display: none !important; 
