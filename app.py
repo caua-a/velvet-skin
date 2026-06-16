@@ -8,10 +8,7 @@ load_dotenv()
 app = Flask(__name__)
 app.secret_key = "senha123"
 
-client = genai.Client()
-@app.route('/teste')
-def pagina_inicial():
-    return render_template('produtos.html')
+client = genai.Client(api_key='AQ.Ab8RN6KowE8_IuAktC50o84ymxjR0w3XeUwDJJoRglv-4r57Xw')
 
 
 @app.route('/')
@@ -79,11 +76,20 @@ def analisar_foto():
     # 3. Envia a foto e a pergunta para o Gemini
     resposta = client.models.generate_content(
         model='gemini-2.5-flash',
-        contents=[imagem, "Diga de forma curta se esta pele parece seca ou oleosa."]
+        contents=[imagem, """Analise a pele da pessoa na foto e responda em um texto curto e amigável.
+
+Informe:
+- O tipo de pele (oleosa, seca, mista ou normal).
+- Uma breve explicação do motivo.
+- Até 3 recomendações simples de cuidados.
+
+Não faça diagnósticos médicos.
+Não mencione doenças.
+Responda em no máximo 5 linhas."""]
     )
     
     # 4. Mostra o texto que a IA respondeu direto na tela
-    return resposta.text
+    return render_template('resultado.html', resultado=resposta.text)
 
 
 @app.route('/questionario')

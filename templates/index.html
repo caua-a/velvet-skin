@@ -16,24 +16,25 @@
     </p>
 
     <div class="botoes-principais">
-        <a href="/obter-popup">
-        <button class="botao-analise">
+    
+        <button class="botao-analise" onclick="abrirPopup()">
             FAZER ANÁLISE DA PELE
         </button>
+        
+        <a href="#produtos">
+            <button class="botao-catalogo">
+                VER CATÁLOGO
+            </button>
         </a>
-
-        <button class="botao-catalogo">
-            VER CATÁLOGO
-        </button>
     </div>
 </div>
-
+<div id="container-popup" style="display: none;"></div>
 <section class="carrossel">
 
     <div id="carouselVelvetSkin"
          class="carousel slide carousel-fade"
          data-bs-ride="carousel"
-         data-bs-interval="4000">
+         data-bs-interval="3000">
 
         <div class="carousel-inner">
 
@@ -111,4 +112,85 @@
             document.getElementById('container-popup').style.display = 'none';
         }
     </script>
+
+        <section id="produtos" class="produtos-container">
+        
+        <section class="secao-diurna">
+            <div class="titulo-secao">
+                <span class="material-symbols-outlined">sunny</span>
+                <h1>PRODUTOS DIURNOS</h1>
+            </div>
+
+            <div class="lista-produtos">
+                <article class="produto-card">
+                    <img src="/static/img/gel de limpeza facial.png" alt="Gel de Limpeza Facial">
+                    <h2>Gel de Limpeza Facial</h2>
+                    <p class="preco">R$ 89,90</p>
+                    <button class="btn-ver-mais">VER MAIS</button>
+                </article>
+
+                <article class="produto-card">
+                    <img src="/static/img/serum facial branco.png" alt="Sérum Vitamina C">
+                    <h2>Sérum Vitamina C</h2>
+                    <p class="preco">R$ 129,90</p>
+                    <button class="btn-ver-mais">VER MAIS</button>
+                </article>
+
+                <article class="produto-card">
+                    <img src="/static/img/creme hidratante bebe.png" alt="Hidratante Facial">
+                    <h2>Hidratante Facial</h2>
+                    <p class="preco">R$ 149,90</p>
+                    <button class="btn-ver-mais">VER MAIS</button>
+                </article>
+
+                <article class="produto-card">
+                    <img src="/static/img/protetor solar.png" alt="Protetor Solar">
+                    <h2>Protetor Solar FPS 50</h2>
+                    <p class="preco">R$ 99,90</p>
+                    <button class="btn-ver-mais">VER MAIS</button>
+                </article>
+            </div>
+        </section>
+
+        <section class="secao-noturna">
+            <div class="titulo-secao">
+                <span class="material-symbols-outlined">
+dark_mode
+</span>
+                <h1>PRODUTOS NOTURNOS</h1>
+            </div>
+
+            <div class="lista-produtos">
+                <article class="produto-card">
+                    <img src="/static/img/serum retinol noturno.png" alt="Sérum Retinol">
+                    <h2>Sérum Retinol</h2>
+                    <p class="preco">R$ 159,90</p>
+                    <button class="btn-ver-mais">VER MAIS</button>
+                </article>
+
+                <article class="produto-card">
+                    <img src="/static/img/argila noturn.jpg" alt="Creme Noturno">
+                    <h2>Creme Noturno</h2>
+                    <p class="preco">R$ 139,90</p>
+                    <button class="btn-ver-mais">VER MAIS</button>
+                </article>
+
+                <article class="produto-card">
+                    <img src="/static/img/oleo facial nutritivo.png" alt="Óleo Facial">
+                    <h2>Óleo Facial</h2>
+                    <p class="preco">R$ 119,90</p>
+                    <button class="btn-ver-mais">VER MAIS</button>
+                </article>
+
+                <article class="produto-card">
+                    <img src="/static/img/argiloa.png" alt="Máscara de Argila">
+                    <h2>Máscara de Argila</h2>
+                    <p class="preco">R$ 89,90</p>
+                    <button class="btn-ver-mais">VER MAIS</button>
+                </article>
+            </div>
+        </section>
+
+    </section>
+
 {% endblock %}

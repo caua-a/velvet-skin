@@ -27,7 +27,7 @@ body {
 
 .apresentacao {
     display: flex;
-    
+    background-color: var(--cor-fundo);
     align-items: center;
     min-height: 85vh;
     padding-left: 8%;
@@ -158,3 +158,39 @@ body {
 }
 
 
+.resultado-container{
+    min-height: 80vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#FBF9F4;
+}
+
+.resultado-card{
+    background:white;
+    width:500px;
+    padding:40px;
+    border-radius:16px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.resultado-card h1{
+    color:#4A5B35;
+    margin-bottom:20px;
+}
+
+.resultado-texto{
+    font-size:18px;
+    margin-bottom:25px;
+    color:#2D2D2D;
+}
+
+.btn-voltar{
+    background:#4A5B35;
+    color:white;
+    border:none;
+    padding:12px 24px;
+    border-radius:8px;
+    cursor:pointer;
+}
