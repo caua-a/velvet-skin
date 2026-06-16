@@ -12,9 +12,8 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f8f7f3;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    
+    
 }
 
 /* FORMULÁRIO */

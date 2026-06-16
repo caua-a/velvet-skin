@@ -1,7 +1,9 @@
-from flask import Flask, render_template, redirect, request, jsonify
+from flask import Flask, render_template, redirect, request, jsonify, session
 from google import genai
 from PIL import Image
 from dotenv import load_dotenv
+from model.cadastro import cadastrar_usuario, recuperar_users, recuperar
+
 load_dotenv()
 app = Flask(__name__)
 app.secret_key = "senha123"
@@ -11,20 +13,56 @@ client = genai.Client()
 def pagina_inicial():
     return render_template('produtos.html')
 
-@app.route('/')
-def pagina_inicial():
-    return render_template('pagina_inicial.html')
 
 @app.route('/')
 def pagina_inicial():
+    return render_template('index.html')
+
+@app.route('/cadastro')
+def pagina_cadastro():
     return render_template('pagina_cadastro.html')
 
-@app.route('/')
-def pagina_inicial():
+@app.route('/login')
+def pagina_login():
     return render_template('pagina_login.html')
 
 
+@app.route('/perfil_user')
+def pagina_perfil():
+    usuario_sessao = session.get('usuario_logado')
+    
+    if not usuario_sessao:
+        return redirect('/login') 
+        
 
+    usuario_nome = usuario_sessao['usuario'] if isinstance(usuario_sessao, dict) else usuario_sessao
+
+    dados = recuperar(usuario_nome) 
+    return render_template('perfil.html', dados=dados)
+
+
+@app.route('/login/logar',methods = ['post'])
+def logando():
+    usuario = request.form.get('usuariologin')
+    senha = request.form.get('senhalogin')
+    user = recuperar_users(usuario, senha)
+    if user:
+        session['usuario_logado'] = user
+        return redirect('/perfil_user')
+    return redirect('/cadastro')
+
+
+@app.route('/cadastro/cadastrar', methods=['POST', 'GET'])
+def cadastrando():
+    nome = request.form.get('nome')
+    email = request.form.get('email')
+    telefone = request.form.get('telefone')
+    endereco = request.form.get('endereco')
+    senhapri = request.form.get('senha')
+    senhaconf = request.form.get('confirmar-senha')
+    if cadastrar_usuario(nome, senhapri, email, telefone, endereco) and senhapri == senhaconf:
+        return redirect('/login')
+    return redirect('/cadastro')
 
 @app.route('/obter-popup')
 def obter_popup():
