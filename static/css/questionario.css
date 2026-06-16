@@ -1,0 +1,83 @@
+body{
+    font-family: Arial;
+    background: #f5f2ec;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.container{
+    width: 300px;
+}
+
+.pergunta{
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* todas perguntas escondidas */
+.pergunta-1,
+.pergunta-2{
+    display: none;
+}
+
+/* primeira visível inicialmente */
+.pergunta-1.ativa,
+.pergunta-2.ativa{
+    display: block;
+}
+
+/* esconde o radio */
+input[type="radio"]{
+    display: none;
+}
+
+/* card */
+.opcao{
+    display: block;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* quando selecionado */
+input[type="radio"]:checked + .opcao{
+    border: 2px solid #6d7340;
+    background: #f1f4e8;
+    color: #6d7340;
+    font-weight: bold;
+}
+
+.botao-proxima{
+    width: 100%;
+    padding: 14px;
+    border: none;
+    background: #6d7340;
+    color: white;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.botao-voltar{
+    width: 100%;
+    padding: 14px;
+    border: none;
+    background: #f5f2ec;
+    color: #6d7340;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.botao-voltar:hover{
+    background-color: #6d73401e;
+    cursor: pointer;
+}
+
+
+

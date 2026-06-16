@@ -8,7 +8,10 @@ load_dotenv()
 app = Flask(__name__)
 app.secret_key = "senha123"
 
-client = genai.Client(api_key='AQ.Ab8RN6KjY8Jmta7XcjwbX6Is_Ud1geQKjsuyZUAQ7j876QyfVQ')
+client = genai.Client()
+@app.route('/teste')
+def pagina_inicial():
+    return render_template('produtos.html')
 
 
 @app.route('/')
@@ -82,6 +85,10 @@ def analisar_foto():
     # 4. Mostra o texto que a IA respondeu direto na tela
     return resposta.text
 
+
+@app.route('/questionario')
+def pagina_questionario():
+    return render_template('questionario.html')
 
 
 
