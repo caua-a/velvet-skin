@@ -86,3 +86,7 @@ body{
 .botao-cadastrar:hover{
     background-color: #445624;
 }
+
+@view-transition {
+  navigation: auto;
+}

@@ -3,17 +3,19 @@ from google import genai
 from PIL import Image
 from dotenv import load_dotenv
 from model.cadastro import cadastrar_usuario, recuperar_users, recuperar
+from model.produtos import recuperar_produtos, detalhe_produto
 
 load_dotenv()
 app = Flask(__name__)
 app.secret_key = "senha123"
 
-client = genai.Client(api_key='AQ.Ab8RN6KowE8_IuAktC50o84ymxjR0w3XeUwDJJoRglv-4r57Xw')
+client = genai.Client(api_key='AQ.Ab8RN6L5F8DgyoMhOUcrHSg0NtmSpfIQwXNICXyFJMz0JzMWBw')
 
 
 @app.route('/')
 def pagina_inicial():
-    return render_template('index.html')
+    dados = recuperar_produtos()
+    return render_template('index.html', dados = dados)
 
 @app.route('/cadastro')
 def pagina_cadastro():
@@ -34,8 +36,8 @@ def pagina_perfil():
 
     usuario_nome = usuario_sessao['usuario'] if isinstance(usuario_sessao, dict) else usuario_sessao
 
-    dados = recuperar(usuario_nome) 
-    return render_template('perfil.html', dados=dados)
+    usuario = recuperar(usuario_nome) 
+    return render_template('perfil.html', usuario=usuario)
 
 
 @app.route('/login/logar',methods = ['post'])
@@ -60,6 +62,25 @@ def cadastrando():
     if cadastrar_usuario(nome, senhapri, email, telefone, endereco) and senhapri == senhaconf:
         return redirect('/login')
     return redirect('/cadastro')
+
+@app.route('/produto/<int:id>')
+def detalhe_produtoo(id):
+    
+    produto = detalhe_produto(id)
+    return render_template('produto.html', produto=produto)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @app.route('/obter-popup')
 def obter_popup():

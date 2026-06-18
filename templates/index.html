@@ -4,193 +4,156 @@
 
 <section class="apresentacao">
 
-<div class="texto-principal">
-    <h1 class="titulo-principal">
-        Tecnologia que <br>
-        entende sua pele.
-    </h1>
+    <div class="texto-principal">
+        <h1 class="titulo-principal">
+            Tecnologia que <br>
+            entende sua pele.
+        </h1>
 
-    <p class="descricao-principal">
-        Análise inteligente, rotina personalizada <br>
-        e produtos ideais para você.
-    </p>
+        <p class="descricao-principal">
+            Análise inteligente, rotina personalizada <br>
+            e produtos ideais para você.
+        </p>
 
-    <div class="botoes-principais">
-    
-        <button class="botao-analise" onclick="abrirPopup()">
-            FAZER ANÁLISE DA PELE
-        </button>
-        
-        <a href="#produtos">
-            <button class="botao-catalogo">
-                VER CATÁLOGO
+        <div class="botoes-principais">
+
+            <button class="botao-analise" onclick="abrirPopup()">
+                FAZER ANÁLISE DA PELE
             </button>
-        </a>
+
+            <a href="#produtos">
+                <button class="botao-catalogo">
+                    VER CATÁLOGO
+                </button>
+            </a>
+        </div>
     </div>
-</div>
-<div id="container-popup" style="display: none;"></div>
-<section class="carrossel">
+    <div id="container-popup" style="display: none;"></div>
+    <section class="carrossel">
 
-    <div id="carouselVelvetSkin"
-         class="carousel slide carousel-fade"
-         data-bs-ride="carousel"
-         data-bs-interval="3000">
+        <div id="carouselVelvetSkin" class="carousel slide carousel-fade" data-bs-ride="carousel"
+            data-bs-interval="3000">
 
-        <div class="carousel-inner">
+            <div class="carousel-inner">
 
-            <div class="carousel-item active">
-                <img src="/static/img/skincare-moca1.jpg" alt="Skincare 1">
-            </div>
+                <div class="carousel-item active">
+                    <img src="/static/img/skincare-moca1.jpg" alt="Skincare 1">
+                </div>
 
-            <div class="carousel-item">
-                <img src="/static/img/skincare-moca2.jpg" alt="Skincare 2">
-            </div>
+                <div class="carousel-item">
+                    <img src="/static/img/skincare-moca2.jpg" alt="Skincare 2">
+                </div>
 
-            <div class="carousel-item">
-                <img src="/static/img/skincare-moca3.jpg" alt="Skincare 3">
+                <div class="carousel-item">
+                    <img src="/static/img/skincare-moca3.jpg" alt="Skincare 3">
+                </div>
+
             </div>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
 </section>
 
 <section class="beneficios">
 
-<div class="beneficio">
-    <img class="beneficio-img" src="/static/img/cameraanalise.png" alt="Análise Inteligente">
-    <div>
-        <h2 class="beneficio-titulo">Análise Inteligente</h2>
-        <p class="beneficio-texto">IA que entende sua pele</p>
+    <div class="beneficio">
+        <img class="beneficio-img" src="/static/img/cameraanalise.png" alt="Análise Inteligente">
+        <div>
+            <h2 class="beneficio-titulo">Análise Inteligente</h2>
+            <p class="beneficio-texto">IA que entende sua pele</p>
+        </div>
     </div>
-</div>
 
-<div class="beneficio">
-    <img class="beneficio-img" src="/static/img/skincare-routine.png" alt="Rotina Personalizada">
-    <div>
-        <h2 class="beneficio-titulo">Rotina Personalizada</h2>
-        <p class="beneficio-texto">Produtos ideais para você</p>
+    <div class="beneficio">
+        <img class="beneficio-img" src="/static/img/skincare-routine.png" alt="Rotina Personalizada">
+        <div>
+            <h2 class="beneficio-titulo">Rotina Personalizada</h2>
+            <p class="beneficio-texto">Produtos ideais para você</p>
+        </div>
     </div>
-</div>
 
-<div class="beneficio">
-    <img class="beneficio-img" src="/static/img/acompanhamennto.png" alt="Acompanhamento">
-    <div>
-        <h2 class="beneficio-titulo">Acompanhamento</h2>
-        <p class="beneficio-texto">Evolução mensal da sua pele</p>
+    <div class="beneficio">
+        <img class="beneficio-img" src="/static/img/acompanhamennto.png" alt="Acompanhamento">
+        <div>
+            <h2 class="beneficio-titulo">Acompanhamento</h2>
+            <p class="beneficio-texto">Evolução mensal da sua pele</p>
+        </div>
     </div>
-</div>
 
-<div class="beneficio">
-    <img class="beneficio-img" src="/static/img/evolucao.png" alt="Resultados Reais">
-    <div>
-        <h2 class="beneficio-titulo">Resultados Reais</h2>
-        <p class="beneficio-texto">Mais saúde e autoestima</p>
+    <div class="beneficio">
+        <img class="beneficio-img" src="/static/img/evolucao.png" alt="Resultados Reais">
+        <div>
+            <h2 class="beneficio-titulo">Resultados Reais</h2>
+            <p class="beneficio-texto">Mais saúde e autoestima</p>
+        </div>
     </div>
-</div>
 
 
 </section>
-    <script>
-        function abrirPopup() {
-            const container = document.getElementById('container-popup');
-            
-            // Busca o seu formulário pronto lá no Flask
-            fetch('/obter-popup')
-                .then(response => response.text())
-                .then(html => {
-                    container.innerHTML = html; // Injeta o seu HTML aqui dentro
-                    container.style.display = 'flex'; // Exibe o pop-up centralizado
-                });
-        }
+<script>
+    function abrirPopup() {
+        const container = document.getElementById('container-popup');
 
-        function fecharPopup() {
-            document.getElementById('container-popup').style.display = 'none';
-        }
-    </script>
+        // Busca o seu formulário pronto lá no Flask
+        fetch('/obter-popup')
+            .then(response => response.text())
+            .then(html => {
+                container.innerHTML = html; // Injeta o seu HTML aqui dentro
+                container.style.display = 'flex'; // Exibe o pop-up centralizado
+            });
+    }
 
-        <section id="produtos" class="produtos-container">
-        
-        <section class="secao-diurna">
-            <div class="titulo-secao">
-                <span class="material-symbols-outlined">sunny</span>
-                <h1>PRODUTOS DIURNOS</h1>
-            </div>
+    function fecharPopup() {
+        document.getElementById('container-popup').style.display = 'none';
+    }
+</script>
 
-            <div class="lista-produtos">
-                <article class="produto-card">
-                    <img src="/static/img/gel de limpeza facial.png" alt="Gel de Limpeza Facial">
-                    <h2>Gel de Limpeza Facial</h2>
-                    <p class="preco">R$ 89,90</p>
-                    <button class="btn-ver-mais">VER MAIS</button>
-                </article>
+<section id="produtos" class="produtos-container">
 
-                <article class="produto-card">
-                    <img src="/static/img/serum facial branco.png" alt="Sérum Vitamina C">
-                    <h2>Sérum Vitamina C</h2>
-                    <p class="preco">R$ 129,90</p>
-                    <button class="btn-ver-mais">VER MAIS</button>
-                </article>
-
-                <article class="produto-card">
-                    <img src="/static/img/creme hidratante bebe.png" alt="Hidratante Facial">
-                    <h2>Hidratante Facial</h2>
-                    <p class="preco">R$ 149,90</p>
-                    <button class="btn-ver-mais">VER MAIS</button>
-                </article>
-
-                <article class="produto-card">
-                    <img src="/static/img/protetor solar.png" alt="Protetor Solar">
-                    <h2>Protetor Solar FPS 50</h2>
-                    <p class="preco">R$ 99,90</p>
-                    <button class="btn-ver-mais">VER MAIS</button>
-                </article>
-            </div>
-        </section>
-
-        <section class="secao-noturna">
-            <div class="titulo-secao">
-                <span class="material-symbols-outlined">
-dark_mode
-</span>
-                <h1>PRODUTOS NOTURNOS</h1>
-            </div>
-
-            <div class="lista-produtos">
-                <article class="produto-card">
-                    <img src="/static/img/serum retinol noturno.png" alt="Sérum Retinol">
-                    <h2>Sérum Retinol</h2>
-                    <p class="preco">R$ 159,90</p>
-                    <button class="btn-ver-mais">VER MAIS</button>
-                </article>
-
-                <article class="produto-card">
-                    <img src="/static/img/argila noturn.jpg" alt="Creme Noturno">
-                    <h2>Creme Noturno</h2>
-                    <p class="preco">R$ 139,90</p>
-                    <button class="btn-ver-mais">VER MAIS</button>
-                </article>
-
-                <article class="produto-card">
-                    <img src="/static/img/oleo facial nutritivo.png" alt="Óleo Facial">
-                    <h2>Óleo Facial</h2>
-                    <p class="preco">R$ 119,90</p>
-                    <button class="btn-ver-mais">VER MAIS</button>
-                </article>
-
-                <article class="produto-card">
-                    <img src="/static/img/argiloa.png" alt="Máscara de Argila">
-                    <h2>Máscara de Argila</h2>
-                    <p class="preco">R$ 89,90</p>
-                    <button class="btn-ver-mais">VER MAIS</button>
-                </article>
-            </div>
-        </section>
-
+    <section class="secao-diurna">
+        <div class="titulo-secao">
+            <span class="material-symbols-outlined">sunny</span>
+            <h1>PRODUTOS DIURNOS</h1>
+        </div>
+<div class="lista-produtos">
+    {% for dado in dados %}
+        {% if dado.categoria == 'diurno' %}
+            <article class="produto-card" id="produto-{{ dado.id_produto }}">
+                <img src="{{ dado.imagem }}" alt="{{ dado.produto }}">
+                <h2>{{ dado.nome }}</h2>
+                <p class="preco">R$ {{ dado.preco }}</p>
+                <a href="/produto/{{ dado.id_produto }}" class="btn-ver-mais">VER MAIS</a>
+            </article>
+        {% endif %}
+    {% endfor %}
+</div>
     </section>
+
+    <section class="secao-noturna">
+        <div class="titulo-secao">
+            <span class="material-symbols-outlined">
+                dark_mode
+            </span>
+            <h1>PRODUTOS NOTURNOS</h1>
+        </div>
+
+       <div class="lista-produtos">
+    {% for dado in dados %}
+        {% if dado.categoria == 'noturno' %}
+            <article class="produto-card" id="produto-{{ dado.id_produto }}">
+                <img src="{{ dado.imagem }}" alt="{{ dado.produto }}">
+                <h2>{{ dado.nome }}</h2>
+                <p class="preco">R$ {{ dado.preco }}</p>
+                <a href="/produto/{{ dado.id_produto }}" class="btn-ver-mais">VER MAIS</a>
+            </article>
+        {% endif %}
+    {% endfor %}
+</div>
+    </section>
+
+</section>
 
 {% endblock %}
