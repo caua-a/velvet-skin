@@ -39,57 +39,90 @@ CREATE TABLE comentarios (
 );
 
 
--- 3. INSERÇÃO DOS DADOS DE EXEMPLO (COM URLS DE IMAGENS REAIS)
-
--- Inserindo Usuário
-INSERT INTO usuarios (usuario, senha, email, telefone, endereco_principal) 
-VALUES (
-    'mariasilva', 
-    'senha_criptografada_aqui', 
-    'maria.silva@email.com', 
-    '(11) 99999-8888', 
-    'Rua das Flores, 123 - São Paulo, SP'
-);
-
--- Inserindo Produtos (Categorias: diurno ou noturno)
+-- INSERÇÃO DE TODOS OS PRODUTOS DA PASTA (COM CAMINHO ABSOLUTO /)
 INSERT INTO produtos (produto, descricao, preco, categoria, imagem) 
 VALUES 
 (
-    'Protetor Solar Facial', 
-    'Proteção solar diária com controle de oleosidade e rápida absorção.', 
-    79.90, 
-    'diurno', 
-    'static/img/protetor solar.png'
+    'Kit Acompanhamento Velvet Skin',
+    'Conjunto especial para rotina de cuidados diários e evolução da pele.',
+    189.90,
+    'diurno',
+    '/static/img/acompanhamennto.png'
 ),
 (
-    'Sérum de Retinol Noturno', 
-    'Tratamento noturno antidade que renova a textura da pele enquanto você dorme.', 
-    129.90, 
+    'Máscara de Argila Noturna (Night Clay Mask)', 
+    'Purificação noturna profunda com argila rica em minerais, lavanda e camomila. Revitaliza e refina a pele.', 
+    89.90, 
     'noturno', 
-    'static/img/serum retinol noturno.png'
+    '/static/img/argila noturn.jpg'
+),
+(
+    'Máscara de Argila Purificante', 
+    'Tratamento focado para acne e cravos. Contém Ácido Salicílico e Chá Verde para absorver a oleosidade e acalmar a pele.', 
+    79.90, 
+    'diurno', 
+    '/static/img/argiloa.png'
+),
+(
+    'Creme Hidratante Facial (Nourishing Face Cream)', 
+    'Creme nutritivo enriquecido com ceramidas e extratos botânicos para uma hidratação profunda e restauração da barreira cutânea.', 
+    64.90, 
+    'diurno', 
+    '/static/img/creme hidratante bebe.png'
 ),
 (
     'Gel de Limpeza Facial', 
-    'Limpeza profunda diária que remove a oleosidade sem ressecar.', 
-    45.00, 
+    'Remove impurezas e hidrata. Formulado com ceramidas, niacinamida e extratos botânicos para uma limpeza diária suave.', 
+    49.90, 
     'diurno', 
-    'static/img/gel de limpeza facial.png'
+    '/static/img/gel de limpeza facial.png'
 ),
 (
-    'Máscara de Argila Noturna', 
-    'Tratamento intensivo noturno para purificação dos poros e controle de brilho.', 
-    59.90, 
+    'Imagem de Teste 1',
+    'Produto de teste para validação de layout do catálogo.',
+    29.90,
+    'diurno',
+    '/static/img/img_teste1.png'
+),
+(
+    'Óleo Facial Nutritivo', 
+    'Nutrição profunda e brilho natural para a pele. Rico em Vitaminas A, C, E e extratos botânicos seletos.', 
+    110.00, 
     'noturno', 
-    'static/img/argila noturn.jpg'
-);
--- Inserindo no Carrinho (Vincula o usuário 'mariasilva' ao produto ID 1)
-INSERT INTO carrinho (usuario, id_produto) 
-VALUES ('mariasilva', 1);
-
--- Inserindo Comentário (Vincula o usuário 'mariasilva' ao produto ID 2)
-INSERT INTO comentarios (usuario, comentario, id_produto) 
-VALUES (
-    'mariasilva', 
-    'Estou usando há duas semanas e já notei minha pele muito mais iluminada e macia!', 
-    2
+    '/static/img/oleo facial nutritivo.png'
+),
+(
+    'Protetor Solar Facial & Corporal FPS 50+', 
+    'Proteção de amplo espectro UVA/UVB, resistente à água. Ação anti-manchas com Niacinamida e Óleo de Amêndoas. Toque seco.', 
+    85.00, 
+    'diurno', 
+    '/static/img/protetor solar.png'
+),
+(
+    'Sérum Facial Normal',
+    'Sérum de manutenção diária para hidratação leve e controle de textura.',
+    95.00,
+    'diurno',
+    '/static/img/seru normal.jpg'
+),
+(
+    'Sérum Hidratante Facial (Hydrating Facial Serum)', 
+    'Sérum diário com AHA (Alfa-hidroxiácidos) e Ácido Hialurónico. Promove revitalização e efeito Glow radiante.', 
+    119.90, 
+    'diurno', 
+    '/static/img/serum facial branco.png'
+),
+(
+    'Sérum Noturno Renovador (Night Serum)', 
+    'Tratamento intensivo de reparação noturna (Night Recovery & Repair). Estimula a renovação celular para acordar com uma pele iluminada.', 
+    134.90, 
+    'noturno', 
+    '/static/img/serum retinol noturno.png'
+),
+(
+    'Duo Creme Marrom e Sérum Diurno',
+    'Tratamento combinado de alta performance para o período do dia.',
+    159.90,
+    'diurno',
+    '/static/img/serum e um creme marrom diurno.png'
 );

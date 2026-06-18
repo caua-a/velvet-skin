@@ -9,7 +9,7 @@ load_dotenv()
 app = Flask(__name__)
 app.secret_key = "senha123"
 
-client = genai.Client()
+client = genai.Client(api_key='AQ.Ab8RN6L5F8DgyoMhOUcrHSg0NtmSpfIQwXNICXyFJMz0JzMWBw')
 
 
 @app.route('/')

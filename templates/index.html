@@ -123,7 +123,7 @@
         {% if dado.categoria == 'diurno' %}
             <article class="produto-card" id="produto-{{ dado.id_produto }}">
                 <img src="{{ dado.imagem }}" alt="{{ dado.produto }}">
-                <h2>{{ dado.nome }}</h2>
+                <h2>{{ dado.produto }}</h2>
                 <p class="preco">R$ {{ dado.preco }}</p>
                 <a href="/produto/{{ dado.id_produto }}" class="btn-ver-mais">VER MAIS</a>
             </article>
@@ -145,7 +145,7 @@
         {% if dado.categoria == 'noturno' %}
             <article class="produto-card" id="produto-{{ dado.id_produto }}">
                 <img src="{{ dado.imagem }}" alt="{{ dado.produto }}">
-                <h2>{{ dado.nome }}</h2>
+                <h2>{{ dado.produto }}</h2>
                 <p class="preco">R$ {{ dado.preco }}</p>
                 <a href="/produto/{{ dado.id_produto }}" class="btn-ver-mais">VER MAIS</a>
             </article>
