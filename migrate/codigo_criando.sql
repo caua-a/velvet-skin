@@ -23,6 +23,7 @@ CREATE TABLE carrinho (
     id_carrinho INT AUTO_INCREMENT PRIMARY KEY,
     usuario VARCHAR(50),
     id_produto INT,
+    quantidade INT,
     FOREIGN KEY (usuario) REFERENCES usuarios(usuario),
     FOREIGN KEY (id_produto) REFERENCES produtos(id_produto)
 );
@@ -57,10 +58,10 @@ INSERT INTO produtos (produto, descricao, preco, categoria, imagem) VALUES
 -- 3. INSERTS PARA A TABELA 'carrinho'
 -- Simula utilizadores que adicionaram produtos ao carrinho de compras
 INSERT INTO carrinho (usuario, id_produto) VALUES
-('ana_silva', 1), -- Ana adicionou o Sérum
-('ana_silva', 4), -- Ana também adicionou o Protetor Solar
-('carlos_mendes', 2), -- Carlos adicionou o Gel de Limpeza
-('mariana_costa', 3); -- Mariana adicionou o Creme de Noite
+('ana_silva', 1, 5), -- Ana adicionou o Sérum
+('ana_silva', 4, 2), -- Ana também adicionou o Protetor Solar
+('carlos_mendes', 2, 3), -- Carlos adicionou o Gel de Limpeza
+('mariana_costa', 3, 3); -- Mariana adicionou o Creme de Noite
 
 
 -- 4. INSERTS PARA A TABELA 'comentarios'

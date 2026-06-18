@@ -52,7 +52,57 @@ def analisar_foto():
 def pagina_questionario():
     return render_template('questionario.html')
 
+CARRINHO_SIMULADO = [
+    {
+        "id_carrinho": 1,
+        "id_produto": 1,
+        "produto": "Sérum de Ácido Hialurónico",
+        "preco": 24.99,
+        "quantidade": 1,
+        "imagem": "img/creme hidratante bebe.png" # Ajustado para bater com sua pasta
+    },
+    {
+        "id_carrinho": 2,
+        "id_produto": 3,
+        "produto": "Creme Hidratante Velvet Night",
+        "preco": 29.90,
+        "quantidade": 2,
+        "imagem": "img/creme hidratante bebe.png"
+    }
+]
 
+
+@app.route("/api/get/carrinho", methods=["GET"])
+def get_carrinho():
+    # Retorna os produtos no formato JSON que o seu JavaScript espera
+    return jsonify(CARRINHO_SIMULADO)
+
+
+@app.route("/api/post/item_carrinho", methods=["POST"])
+def post_item_carrinho():
+    dados = request.get_json()
+    id_produto = dados.get("id_produto")
+    quantidade = dados.get("quantidade")
+    
+    # Lógica simples: Procura se o item já existe para atualizar a quantidade
+    for item in CARRINHO_SIMULADO:
+        if item["id_produto"] == id_produto:
+            item["quantidade"] = quantidade
+            return jsonify({"status": "sucesso", "mensagem": "Quantidade atualizada"}), 200
+            
+    return jsonify({"status": "sucesso", "mensagem": "Item adicionado"}), 200
+
+
+@app.route("/api/delete/item_carrinho", methods=["DELETE"])
+def delete_item_carrinho():
+    dados = request.get_json()
+    id_produto = dados.get("id_produto")
+    
+    # Remove o item da nossa lista simulada
+    global CARRINHO_SIMULADO
+    CARRINHO_SIMULADO = [item for item in CARRINHO_SIMULADO if item["id_produto"] != id_produto]
+    
+    return jsonify({"status": "sucesso", "mensagem": "Item removido"}), 200
 
 
 

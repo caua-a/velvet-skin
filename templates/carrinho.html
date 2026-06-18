@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+{% block conteudo %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/carrinho.css">
+    <title>Carrinho</title>
+</head>
+<body>
+
+    <div class="velvet-cart-overlay">
+        <div class="velvet-cart">
+            <div class="cart-header">
+            <h2>Meu Carrinho</h2>
+            <button class="close-cart-btn">&times;</button>
+            </div>
+
+            <div class="cart-body">
+            <div class="cart-item">
+                <img src="../img/creme hidratante bebe.png" alt="Sérum Vitamina C" class="item-img">
+                <div class="item-details">
+                <h3 class="item-title">Sérum Vitamina C</h3>
+                <span class="item-price">R$ 129,90</span>
+                <div class="quantity-selector">
+                    <button class="qty-btn">-</button>
+                    <input type="number" value="1" min="1" class="qty-input">
+                    <button class="qty-btn">+</button>
+                </div>
+                </div>
+                <button class="remove-item-btn">
+                &times;
+                </button>
+            </div>
+            </div>
+
+            <div class="cart-footer">
+            <div class="coupon-section">
+                <input type="text" placeholder="Digite seu cupom" class="coupon-input">
+                <button class="coupon-btn">Adicionar</button>
+            </div>
+            
+            <div class="order-summary">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span>R$ 0,00</span>
+                </div>
+                <div class="summary-row total-row">
+                    <span>Total</span>
+                    <strong id="valor-total">R$ 0,00</strong>
+                </div>
+            </div>
+
+            <button class="checkout-btn">Finalizar compra</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../static/js/carrinho.js" defer></script> 
+</body>
+</html>
+
+
+
+
+{% endblock %}
