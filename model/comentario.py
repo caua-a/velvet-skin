@@ -7,8 +7,8 @@ def puxar_comentario(id):
     conexao.close()
     return itens
 
-def inserir_comentario(nota ,nomeUsuario ,comentario):
+def inserir_comentario(nota ,nomeUsuario ,comentario, id):
     conexao, cursor = conectar()
-    cursor.execute('INSERT INTO comentarios (usuario, comentario, nota) values(%s, %s, %s)', (nomeUsuario, comentario, nota))
+    cursor.execute('INSERT INTO comentarios (usuario, comentario, nota, id_produto) values(%s, %s, %s, %s)', (nomeUsuario, comentario, nota, id))
     conexao.commit()
     conexao.close()

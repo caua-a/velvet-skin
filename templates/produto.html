@@ -67,7 +67,7 @@
         <div class="comments-container">
             <div class="comment-form-box">
                 <h3>Deixe sua Avaliação</h3>
-                <form id="feedbackForm" method="post" action="/produto/comentario/inserir">
+                <form id="feedbackForm" method="post" action="/produto/comentario/inserir/{{ produto.id_produto }}">
                     <div class="input-group">
                         <label for="userName">Seu Nome</label>
                         <input type="text" id="userName" name="name" required placeholder="Digite seu nome...">

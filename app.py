@@ -73,16 +73,16 @@ def detalhe_produtoo(id):
 
 
 
-@app.route('/produto/comentario/inserir', methods =["POST"])
-def inserir_coment():
+@app.route('/produto/comentario/inserir/<int:id>', methods =["POST"])
+def inserir_coment(id):
     nome = request.form.get('name')
     nota = request.form.get('stars')
     comentario = request.form.get('comment')
     
-    inserir_comentario(nota, nome, comentario)
+    inserir_comentario(nota, nome, comentario, id)
     return redirect(request.referrer or '/')
 
-
+    
 
 
 
