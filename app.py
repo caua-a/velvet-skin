@@ -73,19 +73,35 @@ def detalhe_produtoo(id):
 
 
 
-@app.route('/produto/comentario/inserir/<int:id>', methods =["POST"])
+
+@app.route('/produto/comentario/inserir/<int:id>', methods=["POST"])
 def inserir_coment(id):
-    nome = request.form.get('name')
+    # 1. Pega o dicionário da sessão
+    dados_usuario = session.get('usuario_logado') 
+    if not dados_usuario:
+        return redirect('/login') 
+
+    usuario_logado = dados_usuario['usuario']
     nota = request.form.get('stars')
     comentario = request.form.get('comment')
-    
-    inserir_comentario(nota, nome, comentario, id)
+    inserir_comentario(nota, usuario_logado, comentario, id)
     return redirect(request.referrer or '/')
 
 
+@app.route('/catalogo')
+def catalogoo():
+    dados = recuperar_produtos()
+    return render_template('pagina_catalogo.html', dados =dados)
 
 
-
+@app.route('/catalogonoturno')
+def catalogo():
+    dados = recuperar_produtos()
+    return render_template('pagina_catalogoNoturno.html', dados =dados)
+@app.route('/catalogodiurno')
+def catalogod():
+    dados = recuperar_produtos()
+    return render_template('pagina_catalogoDiurno.html', dados =dados)
 
 
 
@@ -121,9 +137,11 @@ Responda em no máximo 5 linhas."""]
     return render_template('resultado.html', resultado=resposta.text)
 
 
-@app.route('/questionario')
-def pagina_questionario():
-    return render_template('questionario.html')
+@app.route('/logout')
+def logout():
+    session.clear() 
+    
+    return redirect('/')
 
 
 

@@ -1,58 +1,30 @@
 {% extends 'layout.html' %}
 {% block conteudo %}
-<!DOCTYPE html>
-<html lang="pt-br">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/pagina_login.css">
-    <title>Login</title>
-</head>
+<link rel="stylesheet" href="/static/css/pagina_login.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-<body>
-
+<div class="login-wrapper">
     <form class="login" action="/login/logar" method="post">
-
         <h1>Login</h1>
 
+        <div class="campo">
+            <label class="label" for="usuario">Usuário</label>
+            <input class="input" type="text" id="usuario" name="usuariologin" placeholder="Digite seu usuário" required>
+        </div>
+
+        <div class="campo">
+            <label class="label" for="senha">Senha</label>
+            <input class="input" type="password" id="senha" name="senhalogin" placeholder="Digite sua senha" required>
+        </div>
 
 
-        <label class="label" for="usuario">
-            Usuario
-        </label>
-
-        <input class="input" type="text" id="usuario" name="usuariologin" placeholder="Digite seu usuário">
-
-
-
-
-
-        <label class="label" for="senha">
-            Senha
-        </label>
-
-        <input class="input" type="password" id="senha" name="senhalogin" placeholder="Digite sua senha">
-
-
-        <p class="esqueceu-senha">
-            Esqueceu sua senha?
-        </p>
-
-        <button class="botao-cadastrar" type="submit">
-            ENTRAR
-        </button>
+        <button class="botao-cadastrar" type="submit">ENTRAR</button>
 
         <p class="cadastro-link">
-            Não tem uma conta?
-            <a href="/cadastro">
-                Cadastre-se
-            </a>
+            Não tem uma conta? <a href="/cadastro">Cadastre-se</a>
         </p>
-
     </form>
+</div>
 
-</body>
-
-</html>
 {% endblock %}
