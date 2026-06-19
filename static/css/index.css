@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --cor-fundo: #FBF9F4;      /* Bege bem claro do fundo */
+    --cor-verde: #4A5B35;      /* Verde oliva escuro dos botões */
+    --cor-verde-hover: #394728;
+    --cor-texto-escuro: #2D2D2D;
+    --cor-texto-mutado: #606060;
+    --fonte-titulos: 'Playfair Display', serif;
+    --fonte-corpo: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* ================= APRESENTAÇÃO & CARROSSEL ================= */
+.apresentacao {
+    display: flex;
+    background-color: var(--cor-fundo);
+    align-items: center;
+    min-height: 85vh;
+    padding-left: 8%;
+}
+
+.texto-principal {
+    width: 35%;
+}
+
+.carrossel {
+    width: 55%;
+    height: 85vh;
+    margin-left: auto;
+}
+
+.titulo-principal {
+    font-family: var(--fonte-titulos);
+    font-size: 52px;
+    line-height: 1.15;
+    font-weight: 400;
+    color: var(--cor-verde);
+    margin-bottom: 25px;
+}
+
+.descricao-principal {
+    font-family: var(--fonte-corpo);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--cor-texto-mutado);
+    margin-bottom: 35px;
+}
+
+/* Botões da Apresentação */
+.botoes-principais {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Remove o sublinhado padrão da tag <a> em volta do botão catálogo */
+.botoes-principais a {
+    text-decoration: none; 
+}
+
+.botoes-principais button {
+    padding: 14px 28px;
+    font-family: var(--fonte-corpo);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border: 1px solid var(--cor-verde);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.botao-analise {
+    background-color: var(--cor-verde);
+    color: white;
+}
+
+.botao-analise:hover {
+    background-color: var(--cor-verde-hover);
+    border-color: var(--cor-verde-hover);
+}
+
+.botao-catalogo {
+    background-color: transparent;
+    color: var(--cor-verde);
+}
+
+.botao-catalogo:hover {
+    background-color: var(--cor-verde);
+    color: white;
+}
+
+/* Ajustes finos do Bootstrap Carousel */
+.carousel, .carousel-inner, .carousel-item {
+    height: 100%;
+}
+
+.carrossel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center bottom;
+}
+
+.carousel-indicators, .carousel-control-prev, .carousel-control-next {
+    display: none !important; 
+}
+
+/* ================= SEÇÃO BENEFÍCIOS ================= */
+.beneficios {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 40px 8%;
+    background-color: var(--cor-fundo);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.beneficio {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 15px;
+    align-items: center;
+}
+
+.beneficio-img {
+    grid-row: 1;
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    opacity: 0.8;
+}
+
+.beneficio-titulo {
+    font-family: var(--fonte-corpo);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--cor-texto-escuro);
+    margin: 0;
+}
+
+.beneficio-texto {
+    font-family: var(--fonte-corpo);
+    font-size: 12px;
+    color: var(--cor-texto-mutado);
+    margin: 3px 0 0 0;
+}
+
+/* ================= POPUP / CONTAINER RESULTADO ================= */
+#container-popup {
+    font-family: var(--fonte-corpo);
+}
+
+.resultado-container {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FBF9F4;
+}
+
+.resultado-card {
+    background: white;
+    width: 500px;
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+}
+
+.resultado-card h1 {
+    color: #4A5B35;
+    margin-bottom: 20px;
+}
+
+.resultado-texto {
+    font-size: 18px;
+    margin-bottom: 25px;
+    color: #2D2D2D;
+}
+
+.btn-voltar {
+    background: #4A5B35;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* ================= PRODUTOS CONTAINER (GERAL) ================= */
+.produtos-container {
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif; /* Mantém a fonte específica para a área de produtos */
+}
+
+.titulo-secao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.titulo-secao h1 {
+    font-family: 'Georgia', serif; 
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.lista-produtos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; 
+}
+
+/* ================= CARD DE PRODUTO INDIVIDUAL ================= */
+.produto-card {
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    padding: 25px 20px;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.produto-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.produto-card img {
+    max-width: 100%;
+    height: 160px;
+    object-fit: contain;
+    margin-bottom: 25px;
+}
+
+.produto-card h2 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: inherit;
+    margin-bottom: 10px;
+    min-height: 36px; 
+}
+
+.produto-card .preco {
+    font-size: 0.95rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.btn-ver-mais {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid currentColor;
+    padding: 10px 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 3px;
+    text-decoration: none; /* Remove sublinhado do link */
+    text-align: center;
+    display: block;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* ================= SEÇÃO DIURNA ================= */
+.secao-diurna {
+    background-color: #FBF9F6; 
+    padding: 20px 30px;
+    padding-bottom: 60px;
+}
+
+.secao-diurna .titulo-secao h1 {
+    color: #4A5343; 
+}
+
+.secao-diurna .produto-card {
+    background-color: #FFF; 
+    border: 1px solid #EAE6DF;
+}
+
+.secao-diurna .produto-card h2 {
+    color: #555;
+}
+
+.secao-diurna .btn-ver-mais {
+    color: #4A5343;
+    border-color: #4A5343;
+}
+
+.secao-diurna .btn-ver-mais:hover {
+    background-color: #4A5343;
+    color: #FFF;
+}
+
+/* ================= SEÇÃO NOTURNA ================= */
+.secao-noturna {
+    background-color: #2D3626; 
+    padding: 40px 30px;
+    color: #ECE7DF; 
+    width: 100%;
+}
+
+.secao-noturna .titulo-secao h1 {
+    color: #ECE7DF;
+}
+
+.secao-noturna .produto-card {
+    border: 1px solid rgba(236, 231, 223, 0.15); 
+}
+
+.secao-noturna .btn-ver-mais {
+    color: #ECE7DF;
+    border-color: #ECE7DF;
+}
+
+.secao-noturna .btn-ver-mais:hover {
+    background-color: #ECE7DF;
+    color: #2D3626;
+}
+
+@view-transition {
+  navigation: auto;
+}

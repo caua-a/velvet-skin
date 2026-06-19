@@ -1,0 +1,100 @@
+{% extends 'layout.html' %}
+{% block conteudo %}
+
+<link rel="stylesheet" href="/static/css/perfil.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+<div class="perfil-container-isolado">
+    <div class="main-container">
+        
+        <aside class="sidebar">
+            <div class="profile-card">
+                <div class="avatar">M</div>
+                <h3>{{usuario.usuario}}</h3>
+                <p>{{usuario.email}}</p>
+                
+                <ul class="side-menu">
+                    <li class="active"><a href="#">Meu Perfil</a></li>
+                    <li><a href="#">Meus Diagnósticos</a></li>
+                    <li><a href="#">Histórico de Pedidos</a></li>
+                    <li><a href="#">Sair</a></li>
+                </ul>
+            </div>
+
+            <div class="skin-score-box">
+                <p class="skin-score-title">Seu Skin Score</p>
+                <div class="score-number">82<span>/100</span></div>
+                <p class="score-status">Muito bom! ✨</p>
+                
+                <div class="metric-item">
+                    <div class="metric-info"><span>Oleosidade</span><span>72%</span></div>
+                    <div class="metric-bar-bg"><div class="metric-bar-fill" style="width: 72%;"></div></div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-info"><span>Hidratação</span><span>85%</span></div>
+                    <div class="metric-bar-bg"><div class="metric-bar-fill" style="width: 85%;"></div></div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-info"><span>Textura</span><span>80%</span></div>
+                    <div class="metric-bar-bg"><div class="metric-bar-fill" style="width: 80%;"></div></div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="content-area">
+            <div class="section-box">
+                <h2 class="section-title">Dados Cadastrais</h2>
+                <form class="form-grid">
+                    <div class="form-group">
+                        <label class="perfil-label">Nome Completo</label>
+                        <input type="text" class="perfil-input" value="{{usuario.usuario}}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label class="perfil-label">E-mail</label>
+                        <input type="email" class="perfil-input" value="{{usuario.email}}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label class="perfil-label">Telefone</label>
+                        <input type="text" class="perfil-input" value="{{usuario.telefone}}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label class="perfil-label">Tipo de Pele (Relatado)</label>
+                        <input type="text" class="perfil-input" value="Mista a Sensível" readonly>
+                    </div>
+                    <div class="form-group full-width">
+                        <label class="perfil-label">Endereço de Entrega</label>
+                        <input type="text" class="perfil-input" value="{{usuario.endereco_principal}}">
+                    </div>
+                    <button type="button" class="btn-primary">Salvar Alterações</button>
+                </form>
+            </div>
+
+            <div class="section-box">
+                <h2 class="section-title">Últimos Pedidos</h2>
+                <table class="order-table">
+                    <thead>
+                        <tr>
+                            <th>Pedido</th>
+                            <th>Data</th>
+                            <th>Produtos</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#12345</td>
+                            <td>18/06/2026</td>
+                            <td>Sérum Facial Hidratante Velvet Skin</td>
+                            <td>R$ 129,90</td>
+                            <td><span class="status-badge status-entregue">Entregue</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+    </div>
+</div>
+
+{% endblock %}
