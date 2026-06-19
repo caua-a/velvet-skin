@@ -24,6 +24,7 @@ CREATE TABLE carrinho (
     id_carrinho INT AUTO_INCREMENT PRIMARY KEY,
     usuario VARCHAR(50),
     id_produto INT,
+    quantidade INT,
     FOREIGN KEY (usuario) REFERENCES usuarios(usuario),
     FOREIGN KEY (id_produto) REFERENCES produtos(id_produto)
 );

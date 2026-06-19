@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from model.cadastro import cadastrar_usuario, recuperar_users, recuperar
 from model.produtos import recuperar_produtos, detalhe_produto
 from model.comentario import inserir_comentario, puxar_comentario   
+from model.carrinho import recuperar_itens_carrinho, salvar_item_carrinho, deletar_item_carrinho
 
 load_dotenv()
 app = Flask(__name__)
@@ -144,9 +145,61 @@ def logout():
     return redirect('/')
 
 
+CARRINHO_SIMULADO = [
+    {
+        "id_carrinho": 1,
+        "id_produto": 1,
+        "produto": "Sérum de Ácido Hialurónico",
+        "preco": 24.99,
+        "quantidade": 1,
+        "imagem": "img/creme hidratante bebe.png" 
+    },
+    {
+        "id_carrinho": 2,
+        "id_produto": 3,
+        "produto": "Creme Hidratante Velvet Night",
+        "preco": 29.90,
+        "quantidade": 2,
+        "imagem": "img/creme hidratante bebe.png"
+    }
+]
+
+# --- ROTAS DA API DO CARRINHO (JSON) ---
+
+@app.route("/api/get/carrinho", methods=["GET"])
+def get_carrinho():
+    try:
+        # Busca os itens reais direto do MySQL
+        itens_reais = recuperar_itens_carrinho()
+        return jsonify(itens_reais), 200
+    except Exception as e:
+        return jsonify({"status": "erro", "mensagem": str(e)}), 500
 
 
+@app.route("/api/post/item_carrinho", methods=["POST"])
+def post_item_carrinho():
+    try:
+        dados = request.get_json()
+        id_produto = int(dados.get("id_produto"))
+        quantidade = int(dados.get("quantidade"))
+        
+        # Salva ou atualiza no banco de dados MySQL
+        salvar_item_carrinho(id_produto, quantidade)
+        
+        return jsonify({"status": "sucesso", "mensagem": "Item processado no banco de dados"}), 200
+    except Exception as e:
+        return jsonify({"status": "erro", "mensagem": str(e)}), 500
 
 
-app.run(host='0.0.0.0', port=8080, debug=True)
+@app.route("/api/delete/item_carrinho/<int:id_produto>", methods=["DELETE"])
+def delete_item_carrinho(id_produto):
+    try:
+        # Executa a deleção no banco de dados
+        deletar_item_carrinho(id_produto)
+        return jsonify({"status": "sucesso", "mensagem": "Item removido com sucesso"}), 200
+    except Exception as e:
+        return jsonify({"status": "erro", "mensagem": str(e)}), 500
 
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080, debug=True)

@@ -43,12 +43,14 @@
 
             <div class="acoes-compra">
                 <div class="seletor-quantidade">
-                    <button type="button" class="qtd-btn">-</button>
-                    <input type="number" id="quantidade" value="1">
-                    <button type="button" class="qtd-btn">+</button>
+                    <button type="button" class="qtd-btn" onclick="document.getElementById('quantidade').value = Math.max(1, parseInt(document.getElementById('quantidade').value) - 1)">-</button>
+                    <input type="number" id="quantidade" value="1" min="1" readonly style="text-align: center; width: 50px;">
+                    <button type="button" class="qtd-btn" onclick="document.getElementById('quantidade').value = parseInt(document.getElementById('quantidade').value) + 1">+</button>
                 </div>
 
-                <button class="btn-adicionar">ADICIONAR AO CARRINHO</button>
+                <button class="btn-adicionar" onclick="inserirItemCarrinho({{ produto.id_produto }}, parseInt(document.getElementById('quantidade').value))">
+                    ADICIONAR AO CARRINHO
+                </button>
 
                 <button class="btn-favorito">
                     <span class="material-symbols-outlined">favorite_border</span>
