@@ -1,99 +1,106 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap');
+
+/* ==========================================================================
+   CONFIGURAÇÕES DE ESCOPO ISOLADO
+   ========================================================================== */
+.pagina-produto-container {
+    font-family: 'Inter', sans-serif;
+    color: #2C2C2C;
+    padding: 40px 20px;
+    max-width: 100%;
 }
 
-body{
-    background-color: #FBF9F4;
-    
+/* Caminho de navegação (Início > Produto) */
+.navegacao-caminho {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    font-size: 0.9rem;
+    color: #7A7A7A;
 }
 
-
-.produto{
+/* ==========================================================================
+   SEÇÃO DO PRODUTO
+   ========================================================================== */
+.produto {
     display: flex;
-    width: 1200px;
     justify-content: center;
     align-items: center;
-    gap: 80px;
-    margin: 50px 0 50px auto;
-    background-color: #faf9f6;
-    padding: 20px;
-    border-radius: 50px;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto 100px;
+    background-color: #FAFAFA;
+    padding: 40px;
+    border-radius: 24px;
 }
 
-.container-imagens {
-    display: flex;
-    gap: 30px;
-}
-
-.fotos-miniaturas {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.fotos-miniaturas img {
-    width: 100px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 6px;
-    cursor: pointer;
-    opacity: 0.6;
-    border: 1px solid transparent;
-    transition: 0.3s;
-}
-
-.fotos-miniaturas img:hover, 
-.fotos-miniaturas img.active {
-    opacity: 1;
-    border-color: #7A8267;
-}
-
-.foto-grande-produto{
-    width: 500px;
-    height: 700px;
+.foto-grande-produto {
+    width: 450px;
+    height: 550px;
     object-fit: cover;
     border-radius: 12px;
     background-color: #F3EFE6;
-    
 }
 
-.info-produto{
+.info-produto {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Alinha os textos e o botão à esquerda */
-    gap: 15px;               /* Cria um espaçamento uniforme entre cada linha de informação */
+    gap: 15px;
     max-width: 450px;
 }
 
+.info-produto h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
 
+.info-produto h6 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+}
 
-/* Espaçamento sutil da categoria */
+.avaliacao-produto {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.estrelas-dashboard {
+    color: #D4AF37;
+    font-size: 1.2rem;
+}
+
+.frase-avaliacao, .subtexto-dashboard {
+    font-size: 0.9rem;
+    color: #6B7280;
+}
+
+.info-produto h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
 .categoria-tipo {
     font-size: 0.85rem;
     color: #7A7A7A;
-    margin-top: 15px;
-    margin-bottom: 20px;
 }
 
-/* Container principal das ações - Coloca tudo lado a lado */
+/* Ações de Compra */
 .acoes-compra {
     display: flex;
     align-items: center;
-    gap: 12px; /* Espaço entre os blocos */
-    width: 100%;
-    max-width: 450px;
+    gap: 12px;
+    margin-top: 15px;
 }
 
-/* --- Caixa do Seletor de Quantidade --- */
 .seletor-quantidade {
     display: flex;
     align-items: center;
     border: 1px solid #E2D9C5;
     border-radius: 4px;
-    background-color: #FFF;
+    background: #FFF;
     height: 48px;
 }
 
@@ -103,17 +110,18 @@ body{
     border: none;
     font-size: 1rem;
     font-weight: bold;
-    color: #2C2C2C;
-    background: transparent;
     outline: none;
-    -moz-appearance: textfield; /* Remove setas padrão no Firefox */
+    background: transparent;
 }
 
-/* Remove setas padrão do input no Chrome/Safari */
+/* Remove flechas nativas do input do tipo number */
 .seletor-quantidade input::-webkit-outer-spin-button,
 .seletor-quantidade input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+.seletor-quantidade input[type=number] {
+    -moz-appearance: textfield;
 }
 
 .qtd-btn {
@@ -124,17 +132,11 @@ body{
     cursor: pointer;
     font-size: 1.2rem;
     color: #6A6A6A;
-    transition: background 0.2s;
 }
 
-.qtd-btn:hover {
-    background-color: #F7F5F0;
-}
-
-/* --- Botão Adicionar ao Carrinho --- */
 .btn-adicionar {
-    flex-grow: 1; /* Faz o botão ocupar o máximo de espaço restante */
-    background-color: #4E593E; /* Tom verde oliva do modelo */
+    flex-grow: 1;
+    background-color: #4E593E;
     color: white;
     border: none;
     height: 48px;
@@ -143,16 +145,15 @@ body{
     font-weight: 600;
     letter-spacing: 1px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.2s;
 }
 
 .btn-adicionar:hover {
     background-color: #3B442E;
 }
 
-/* --- Botão de Favoritos --- */
 .btn-favorito {
-    background-color: #FFF;
+    background: #FFF;
     border: 1px solid #E2D9C5;
     width: 48px;
     height: 48px;
@@ -162,508 +163,212 @@ body{
     justify-content: center;
     cursor: pointer;
     color: #4A4A4A;
-    transition: all 0.3s;
 }
 
-.btn-favorito:hover {
-    background-color: #F7F5F0;
-    border-color: #4E593E;
-    color: #4E593E;
+/* ==================== SEÇÃO DE COMENTÁRIOS VELVET SKIN ==================== */
+.comments-section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
 }
 
-.btn-favorito span {
-    font-size: 1.3rem;
-}
-
-/* .comentarios-avaliacoes{
-    display: flex;
-    width: 1200px;
-    justify-content: center;
-    align-items: center;
-    gap: 80px;
-    margin: 50px 0 50px auto;
-    background-color: #faf9f6;
-    padding: 20px;
-    border-radius: 50px;
-} */
-
-.dashboard-avaliacoes{
-    max-width: 1150px;
-
-    background: #FFFFFF;
-
-    border-radius: 24px;
-
-    padding: 70px 60px;
-
-    display: grid;
-    grid-template-columns: 1fr 1.4fr 1fr;
-
-    align-items: center;
-
-    border: 1px solid #F5F5F5;
-
-    box-shadow:
-    0 10px 30px rgba(0,0,0,.03);
-
+.comments-header {
+    text-align: center;
     margin-bottom: 40px;
 }
 
-/* Notas médias */
-.card-nota-media,
-.card-notas{
-    border-right: 1px solid #F1F1F1;
-}
-
-.card-nota-media,
-.card-notas,
-.card-recomendacao{
-    padding: 0 40px;
-}
-
-
-.card-nota-media{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-}
-
-.card-nota-media h4{
-    font-size:.95rem;
-    color:#777;
-    margin-bottom:10px;
-}
-
-.nota-grande{
-    font-size: 5rem;
-    font-weight: 600;
-    font-family:'Times New Roman', Times, serif;
-    letter-spacing: -3px;
-    color:#2C2C2C;
-}
-
-.avaliacao-produto{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.estrelas-dashboard{
-    color: #D4A93A;
-    font-size: 1rem;
-    margin: 0;
-}
-
-.frase-avaliacao{
+.comments-header .subtitle {
+    color: ;
     font-size: 0.9rem;
-    color: #6B7280;
-    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
 }
 
-.estrelas-dashboard{
-    color: #D4AF37;
-    font-size:1.4rem;
-    letter-spacing: 3px;
+.comments-header h2 {
+    color: #111a2e; /* Azul Escuro Velvet */
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
 }
 
-.subtexto-dashboard{
-    color:#7A7A7A;
+.comments-header p {
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1rem;
 }
 
-
-
-
-/* Barra das avaliações */
-.linha-nota{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    margin-bottom:18px;
-}
-
-.linha-nota span{
-    font-size:.95rem;
-    color:#555;
-}
-
-.barra{
-    flex:1;
-    height:8px;
-
-    background:#F3F4F6;
-
-    border-radius:50px;
-
-    overflow:hidden;
-}
-
-.preenchimento{
-    height:100%;
-    background:#5D684D;
-    border-radius:50px;
-}
-
-
-/* Coluna de recomendação */
-.card-recomendacao{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-}
-
-.circulo-porcentagem{
-    width: 120px;
-    height: 120px;
-
-    border-radius:50%;
-
-    border:2px solid #1F3556;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    font-size:1.8rem;
-    font-weight:700;
-
-    color:#1F3556;
-
-    margin-bottom:18px;
-}
-
-.subtexto-dashboard-recomendacao{
-    margin-top: 12px;
-    max-width: 150px;
-    text-align: center;
-    line-height: 1.6;
-}
-
-
-@media (max-width: 768px) {
-    .dashboard-avaliacoes {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .card-nota-media,
-    .card-notas {
-        border-right: none;
-        border-bottom: 1px solid #ECECEC;
-        padding-bottom: 20px;
-    }
-}
-
-/* Comentários */
-.comentario-item{
-    background:#fff;
-
-    border-radius:20px;
-
-    padding:32px;
-
-    border:1px solid #F3F3F3;
-
-    box-shadow:
-        0 4px 12px rgba(0,0,0,.02);
-
-    transition:.3s;
-}
-
-.comentario-item:hover{
-    transform:translateY(-2px);
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,.04);
-}
-
-
-.media-avaliacoes{
-    width: 100%;
-    border: none;
-    box-sizing: border-box;
+/* Container Flexível para o Formulário e Lista */
+.comments-container {
     display: flex;
-    flex-direction: row;
+    width: 100%;
     justify-content: center;
     align-items: center;
-    padding: 24px;
-    gap: 16px;
-    background: #fff;
-    border: 1px solid #f5f5f5;
-    box-shadow: 0px 4px 8px 3px rgba(99, 116, 133, .06);
-    border-radius: 16px;
-    margin-bottom: 8px;
-    max-width: 926px;
 }
 
-
-/* ======================================
-   SEÇÃO AVALIAÇÕES
-====================================== */
-
-
-
-.comentarios-avaliacoes{
-    max-width: 1200px;
-    margin: 120px auto;
-    padding: 0 20px;
-}
-
-.comentarios-avaliacoes p{
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    color: #6B7280;
-}
-
-.titulo-secao-comentarios{
-    text-align: center;
-    font-family: 'Cormorant Garamond', serif;
-    color: #2C2C2C;
-    font-size: 2.3rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-}
-
-.comentarios-avaliacoes > p{
-    text-align: center;
-    color: #6B7280;
-    margin-bottom: 50px;
-}
-
-/* Cabeçalho */
-.cabecalho-avaliacoes{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    margin:40px 0 20px;
-}
-
-/* Card */
-.comentario-card{
-    background:#fff;
-
-    border-radius:24px;
-
-    padding:32px;
-
-    display:flex;
-    gap:24px;
-
-    border:1px solid #F1F1F1;
-
-    box-shadow:0 8px 25px rgba(0,0,0,.03);
-}
-
-/* Avatar */
-.avatar-cliente{
-    flex-shrink:0;
-}
-
-.avatar-cliente img{
-    width:90px;
-    height:90px;
-    background-color: #3B442E;
-    border-radius:50%;
+/* Caixa do Formulário */
+.comment-form-box {
+    flex: 1;
     
-    object-fit:cover;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(17, 26, 46, 0.05);
+    border: 1px solid rgba(197, 168, 128, 0.2); /* Borda dourada sutil */
 }
 
-/* Conteudo */
-.conteudo-comentario{
-    flex:1;
+.comment-form-box h3 {
+    color: #111a2e;
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+    font-weight: 600;
 }
 
-/* Topo */
-.topo-comentario{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-
-    margin-bottom:10px;
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
 }
 
-/* Nome e Selo */
-.cliente-info{
-    display:flex;
-    align-items:center;
-    gap:12px;
+.input-group label {
+    color: #111a2e;
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
 }
 
-.cliente-info h4{
-    margin:0;
-    color:#1F3556;
+.input-group input[type="text"],
+.input-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background-color: #fafafa;
 }
 
-.cliente-verificado{
-    background:#F3F2EC;
-
-    padding:6px 12px;
-
-    border-radius:999px;
-
-    font-size:.8rem;
-
-    color:#5D684D;
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: #c5a880;
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(197, 168, 128, 0.2);
 }
 
-/* Estrelas */
-.estrelas-comentario{
-    color:#D4AF37;
-
-    letter-spacing:3px;
-
-    margin-bottom:12px;
+/* Sistema Estrelas Interativas (Invertidas via CSS para funcionar da esquerda p/ direita) */
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 5px;
+    font-size: 1.8rem;
 }
 
-/* Título */
-.titulo-comentario{
-    font-family:'Cormorant Garamond', serif;
-
-    font-size:2rem;
-
-    color:#1F3556;
-
-    margin-bottom:12px;
+.star-rating input {
+    display: none;
 }
 
-.data-comentario{
-    color:#6B7280;
-    font-size:.9rem;
+.star-rating label {
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    margin: 0;
 }
 
-/* Texto */
-.texto-comentario{
-    color:#6B7280;
-
-    line-height:1.8;
-
-    max-width:700px;
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #c5a880; /* Estrela Dourada ao selecionar/passar o mouse */
 }
 
-/* Tags */
-.tags-comentario{
-    display:flex;
-    gap:12px;
-
-    margin-top:20px;
+/* Botão de Envio */
+.btn-submit-comment {
+    width: 100%;
+    background-color: #111a2e;
+    color: #fff;
+    border: 1px solid #111a2e;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
 }
 
-.tags-comentario span{
-    background:#F7F6F2;
-
-    padding:10px 18px;
-
-    border-radius:999px;
-
-    color:#5D684D;
-
-    font-size:.9rem;
+.btn-submit-comment:hover {
+    background-color: #c5a880;
+    border-color: #c5a880;
+    color: #111a2e;
 }
 
-.tag-avaliacao{
-    display:flex;
-    align-items:center;
-    gap:8px;
-
-    background:#F5F4EF;
-
-    padding:12px 18px;
-
-    border-radius:999px;
-
-    color:#5D684D;
-
-    font-size:.9rem;
-
-    width:fit-content;
+/* Lista de Comentários Exibidos */
+.comments-list {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 550px;
+    overflow-y: auto; /* Permite rolagem se houver muitos depoimentos */
+    padding-right: 10px;
 }
 
-.icone-tag{
-    font-size:18px !important;
+/* Scrollbar estilizada para o painel de rolar */
+.comments-list::-webkit-scrollbar {
+    width: 6px;
+}
+.comments-list::-webkit-scrollbar-thumb {
+    background-color: rgba(197, 168, 128, 0.4);
+    border-radius: 10px;
 }
 
-/* Coluna da direita do voto útil */
-.utilidade-comentario {
-    position: absolute;
-    right: 24px;
-    top: 50%;
-    transform: translateY(-50%);
+/* Card de cada Comentário */
+.comment-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    border-left: 4px solid #c5a880; /* Detalhe dourado na esquerda */
 }
 
-.btn-util{
-    margin-top:25px;
-
-    border:none;
-
-    background:transparent;
-
-    color:#5D684D;
-
-    cursor:pointer;
+.comment-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
-.btn-utilidade{
-    background:#FAFAFA;
-
-    border:none;
-
-    padding:10px 18px;
-
-    border-radius:999px;
-
-    color:#555;
+.comment-card-header h4 {
+    color: #111a2e;
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
-
-.btn-utilidade:hover {
-    background-color: #F8FAFC;
-    border-color: #CBD5E1;
+.comment-stars {
+    color: #c5a880;
+    font-weight: bold;
+    font-size: 0.95rem;
 }
 
-.btn-utilidade span {
-    font-size: 1rem;
+.nota-numero {
+    color: #888;
+    font-size: 0.8rem;
+    margin-left: 4px;
 }
 
-.foto-comentario{
-    border-radius: 200px;
-    height: 150px;
-    width: 150px;
-    background-color: #6B7280;
-    border: 2px solid red;
-}
-
-/* --- Botão Inferior de Ver Mais --- */
-.btn-ver-mais{
-    background:transparent;
-
-    border:1px solid #4E593E;
-
-    color:#4E593E;
-
-    padding:14px 42px;
-
-    border-radius:999px;
-
-    margin-top: 40px;
-
-    font-weight:600;
-
-    letter-spacing:.5px;
-
-    transition:.3s;
-}
-
-.btn-ver-mais:hover{
-    background:#4E593E;
-    color:#fff;
+.comment-body {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
 }
 
 
-
-
-
-
-
-
-
+@view-transition {
+    navigation: auto;
+}

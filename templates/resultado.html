@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block conteudo %}
+
+<section class="resultado-container">
+
+<div class="resultado-card">
+
+    <h1>Resultado da Análise</h1>
+
+    <div class="resultado-texto">
+        {{ resultado }}
+    </div>
+
+    <a href="/">
+        <button class="btn-voltar" onclick="abrirPopup()">
+            Fazer Nova Análise
+        </button>
+    </a>
+
+</div>
+
+
+</section>
+
+{% endblock %}
