@@ -35,7 +35,6 @@ CREATE TABLE comentarios (
     nota INT NOT NULL,
     data_postado TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     id_produto INT,
-    FOREIGN KEY (usuario) REFERENCES usuarios(usuario),
     FOREIGN KEY (id_produto) REFERENCES produtos(id_produto)
 );
 
