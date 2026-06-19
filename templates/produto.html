@@ -38,7 +38,8 @@
             <p>{{ produto.descricao }}</p>
 
             <p class="categoria-tipo">Categoria: <strong>Skincare</strong> | Tipo:
-                <strong>{{produto.categoria}}</strong> ✨</p>
+                <strong>{{produto.categoria}}</strong> ✨
+            </p>
 
             <div class="acoes-compra">
                 <div class="seletor-quantidade">
@@ -94,17 +95,24 @@
                         <textarea id="userComment" rows="4" required
                             placeholder="Escreva aqui sua experiência com a Velvet Skin..." name="comment"></textarea>
                     </div>
-                    <button onclick="location.reload()" type="submit" class="btn-submit-comment">Enviar Avaliação</button>
+                    <button onclick="location.reload()" type="submit" class="btn-submit-comment">Enviar
+                        Avaliação</button>
                 </form>
             </div>
 
             <div class="comments-list" id="commentsList">
-                {% for item in itens %}
+                {% for item in comentarios %}
                 <div class="comment-card">
                     <div class="comment-card-header">
-                        <h4>{{item.nome_usuario}}</h4>
+                        <h4>{{item.usuario}}</h4>
                         <div class="comment-stars">
-                            {% for i in range(item.nota) %}★{% endfor %}<span class="nota-numero">({{item.nota}})</span>
+                            <!-- Se 'item.nota' existir, ele faz o loop transformando em inteiro. Se não, usa 0 como padrão -->
+                            {% if item.nota %}
+                            {% for i in range(item.nota | int) %}★{% endfor %}
+                            <span class="nota-numero">({{ item.nota }})</span>
+                            {% else %}
+                            <span class="nota-numero">(Sem nota)</span>
+                            {% endif %}
                         </div>
                     </div>
                     <p class="comment-body">{{item.comentario}}</p>

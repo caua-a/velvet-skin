@@ -55,7 +55,6 @@
 }
 
 .info-produto h6 {
-    color: #7A8267;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 0.8rem;
@@ -180,7 +179,7 @@
 }
 
 .comments-header .subtitle {
-    color: #c5a880; /* Dourado */
+    color: ;
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 2px;

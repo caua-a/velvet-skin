@@ -66,9 +66,9 @@ def cadastrando():
 
 @app.route('/produto/<int:id>')
 def detalhe_produtoo(id):
-
+    comentarios = puxar_comentario(id)
     produto = detalhe_produto(id)
-    return render_template('produto.html', produto=produto)
+    return render_template('produto.html', produto=produto, comentarios = comentarios)
 
 
 
@@ -82,7 +82,7 @@ def inserir_coment(id):
     inserir_comentario(nota, nome, comentario, id)
     return redirect(request.referrer or '/')
 
-    
+
 
 
 
