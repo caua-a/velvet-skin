@@ -4,6 +4,7 @@ from PIL import Image
 from dotenv import load_dotenv
 from model.cadastro import cadastrar_usuario, recuperar_users, recuperar
 from model.produtos import recuperar_produtos, detalhe_produto
+from model.comentario import inserir_comentario, puxar_comentario   
 
 load_dotenv()
 app = Flask(__name__)
@@ -65,14 +66,21 @@ def cadastrando():
 
 @app.route('/produto/<int:id>')
 def detalhe_produtoo(id):
-    
+
     produto = detalhe_produto(id)
     return render_template('produto.html', produto=produto)
 
 
 
 
-
+@app.route('/produto/comentario/inserir', methods =["POST"])
+def inserir_coment():
+    nome = request.form.get('name')
+    nota = request.form.get('stars')
+    comentario = request.form.get('comment')
+    
+    inserir_comentario(nota, nome, comentario)
+    return redirect(request.referrer or '/')
 
 
 

@@ -166,216 +166,209 @@
     color: #4A4A4A;
 }
 
-/* ==========================================================================
-   SEÇÃO AVALIAÇÕES & DASHBOARD
-   ========================================================================== */
-.comentarios-avaliacoes {
+/* ==================== SEÇÃO DE COMENTÁRIOS VELVET SKIN ==================== */
+.comments-section {
+    padding: 60px 20px;
     max-width: 1200px;
     margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
 }
 
-.titulo-secao-comentarios {
+.comments-header {
     text-align: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.3rem;
-    font-weight: 700;
-}
-
-.comentarios-avaliacoes > p {
-    text-align: center;
-    color: #6B7280;
     margin-bottom: 40px;
 }
 
-.dashboard-avaliacoes {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr 1fr;
-    align-items: center;
-    background: #FFF;
-    border-radius: 16px;
-    padding: 40px;
-    border: 1px solid #F5F5F5;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-    margin-bottom: 50px;
+.comments-header .subtitle {
+    color: #c5a880; /* Dourado */
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
 }
 
-.card-nota-media, .card-recomendacao {
+.comments-header h2 {
+    color: #111a2e; /* Azul Escuro Velvet */
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.comments-header p {
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1rem;
+}
+
+/* Container Flexível para o Formulário e Lista */
+.comments-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Caixa do Formulário */
+.comment-form-box {
+    flex: 1;
+    
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(17, 26, 46, 0.05);
+    border: 1px solid rgba(197, 168, 128, 0.2); /* Borda dourada sutil */
+}
+
+.comment-form-box h3 {
+    color: #111a2e;
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.input-group {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    margin-bottom: 20px;
 }
 
-.nota-grande {
-    font-size: 4rem;
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 700;
-}
-
-/* Barras de Notas */
-.card-notas {
-    border-left: 1px solid #F1F1F1;
-    border-right: 1px solid #F1F1F1;
-    padding: 0 40px;
-}
-
-.linha-nota {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.input-group label {
+    color: #111a2e;
+    font-weight: 500;
     margin-bottom: 8px;
     font-size: 0.9rem;
 }
 
-.barra {
-    flex: 1;
-    height: 6px;
-    background: #F3F4F6;
-    border-radius: 10px;
-    overflow: hidden;
+.input-group input[type="text"],
+.input-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background-color: #fafafa;
 }
 
-.preenchimento {
-    height: 100%;
-    background: #4E593E;
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: #c5a880;
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(197, 168, 128, 0.2);
 }
 
-/* Recomendação */
-.circulo-porcentagem {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 2px solid #4E593E;
+/* Sistema Estrelas Interativas (Invertidas via CSS para funcionar da esquerda p/ direita) */
+.star-rating {
     display: flex;
-    justify-content: center;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 5px;
+    font-size: 1.8rem;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    margin: 0;
+}
+
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #c5a880; /* Estrela Dourada ao selecionar/passar o mouse */
+}
+
+/* Botão de Envio */
+.btn-submit-comment {
+    width: 100%;
+    background-color: #111a2e;
+    color: #fff;
+    border: 1px solid #111a2e;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.btn-submit-comment:hover {
+    background-color: #c5a880;
+    border-color: #c5a880;
+    color: #111a2e;
+}
+
+/* Lista de Comentários Exibidos */
+.comments-list {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 550px;
+    overflow-y: auto; /* Permite rolagem se houver muitos depoimentos */
+    padding-right: 10px;
+}
+
+/* Scrollbar estilizada para o painel de rolar */
+.comments-list::-webkit-scrollbar {
+    width: 6px;
+}
+.comments-list::-webkit-scrollbar-thumb {
+    background-color: rgba(197, 168, 128, 0.4);
+    border-radius: 10px;
+}
+
+/* Card de cada Comentário */
+.comment-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    border-left: 4px solid #c5a880; /* Detalhe dourado na esquerda */
+}
+
+.comment-card-header {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #4E593E;
     margin-bottom: 10px;
 }
 
-.subtexto-dashboard-recomendacao {
-    font-size: 0.85rem;
-    color: #6B7280;
-    max-width: 140px;
-}
-
-/* ==========================================================================
-   FEED DE COMENTÁRIOS
-   ========================================================================== */
-.cabecalho-avaliacoes {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    color: #6B7280;
-    margin-bottom: 20px;
-}
-
-.comentario-card {
-    background: #FFF;
-    border-radius: 16px;
-    padding: 30px;
-    display: flex;
-    gap: 20px;
-    border: 1px solid #F1F1F1;
-    margin-bottom: 20px;
-}
-
-.avatar-cliente img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.conteudo-comentario {
-    flex: 1;
-}
-
-.topo-comentario {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 5px;
-}
-
-.cliente-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.cliente-info h4 {
+.comment-card-header h4 {
+    color: #111a2e;
+    margin: 0;
     font-size: 1.1rem;
     font-weight: 600;
 }
 
-.cliente-verificado {
-    background: #F3F2EC;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    color: #4E593E;
-}
-
-.data-comentario {
-    color: #9CA3AF;
-    font-size: 0.85rem;
-}
-
-.estrelas-comentario {
-    color: #D4AF37;
-    margin-bottom: 10px;
-}
-
-.titulo-comentario {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    margin-bottom: 8px;
-}
-
-.texto-comentario {
-    color: #555;
-    line-height: 1.6;
+.comment-stars {
+    color: #c5a880;
+    font-weight: bold;
     font-size: 0.95rem;
-    margin-bottom: 15px;
 }
 
-/* Tag de Absorção */
-.tag-avaliacao {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: #F5F4EF;
-    padding: 8px 14px;
-    border-radius: 20px;
-    color: #4E593E;
-    font-size: 0.85rem;
+.nota-numero {
+    color: #888;
+    font-size: 0.8rem;
+    margin-left: 4px;
 }
 
-.icone-tag {
-    font-size: 16px;
+.comment-body {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
 }
 
-/* Botão Ler Mais */
-.btn-ler-mais {
-    display: block;
-    background: transparent;
-    border: 1px solid #4E593E;
-    color: #4E593E;
-    padding: 12px 36px;
-    border-radius: 30px;
-    margin: 40px auto 0;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.btn-ler-mais:hover {
-    background: #4E593E;
-    color: white;
-}
 
 @view-transition {
     navigation: auto;

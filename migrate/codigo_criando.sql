@@ -32,6 +32,7 @@ CREATE TABLE comentarios (
     id_comentario INT AUTO_INCREMENT PRIMARY KEY,
     usuario VARCHAR(50),
     comentario TEXT NOT NULL,
+    nota INT NOT NULL,
     data_postado TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     id_produto INT,
     FOREIGN KEY (usuario) REFERENCES usuarios(usuario),
