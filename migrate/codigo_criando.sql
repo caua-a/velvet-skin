@@ -42,13 +42,7 @@ CREATE TABLE comentarios (
 -- INSERÇÃO DE TODOS OS PRODUTOS DA PASTA (COM CAMINHO ABSOLUTO /)
 INSERT INTO produtos (produto, descricao, preco, categoria, imagem) 
 VALUES 
-(
-    'Kit Acompanhamento Velvet Skin',
-    'Conjunto especial para rotina de cuidados diários e evolução da pele.',
-    189.90,
-    'diurno',
-    '/static/img/acompanhamennto.png'
-),
+
 (
     'Máscara de Argila Noturna (Night Clay Mask)', 
     'Purificação noturna profunda com argila rica em minerais, lavanda e camomila. Revitaliza e refina a pele.', 
@@ -57,40 +51,13 @@ VALUES
     '/static/img/argila noturn.jpg'
 ),
 (
-    'Máscara de Argila Purificante', 
-    'Tratamento focado para acne e cravos. Contém Ácido Salicílico e Chá Verde para absorver a oleosidade e acalmar a pele.', 
-    79.90, 
-    'diurno', 
-    '/static/img/argiloa.png'
-),
-(
-    'Creme Hidratante Facial (Nourishing Face Cream)', 
-    'Creme nutritivo enriquecido com ceramidas e extratos botânicos para uma hidratação profunda e restauração da barreira cutânea.', 
-    64.90, 
-    'diurno', 
-    '/static/img/creme hidratante bebe.png'
-),
-(
-    'Gel de Limpeza Facial', 
-    'Remove impurezas e hidrata. Formulado com ceramidas, niacinamida e extratos botânicos para uma limpeza diária suave.', 
-    49.90, 
-    'diurno', 
-    '/static/img/gel de limpeza facial.png'
-),
-(
     'Imagem de Teste 1',
     'Produto de teste para validação de layout do catálogo.',
     29.90,
     'diurno',
     '/static/img/img_teste1.png'
 ),
-(
-    'Óleo Facial Nutritivo', 
-    'Nutrição profunda e brilho natural para a pele. Rico em Vitaminas A, C, E e extratos botânicos seletos.', 
-    110.00, 
-    'noturno', 
-    '/static/img/oleo facial nutritivo.png'
-),
+
 (
     'Protetor Solar Facial & Corporal FPS 50+', 
     'Proteção de amplo espectro UVA/UVB, resistente à água. Ação anti-manchas com Niacinamida e Óleo de Amêndoas. Toque seco.', 
@@ -125,4 +92,35 @@ VALUES
     159.90,
     'diurno',
     '/static/img/serum e um creme marrom diurno.png'
+),
+(
+    'Creme Noturno Restaurador de Ceramidas (Night Restoring Cream)', 
+    'Deep Night Hydration • Ceramides & Peptides • Restores and Nourishes the Skin Barrier. Hidratação profunda para restauração da barreira cutânea.', 
+    94.90, 
+    'noturno', 
+    '/static/img/creme_restoring.png'
+),
+(
+    'Sérum Noturno de Peptídeos e Colágeno (Night Peptide Serum)', 
+    'Targeted Night Repair • Peptides & Collagen Complex • Firms and Improves Skin Elasticity. Atua diretamente na firmeza e linhas de expressão.', 
+    124.00, 
+    'noturno', 
+    '/static/img/serum_night.png'
+),
+(
+    'Bálsamo Facial de Reparação Intensiva (Deep Repair Facial Balm)', 
+    'Intense Night Nourishment • High Concentration • Repairs and Rejuvenates Damaged Skin. Nutrição noturna concentrada e reparação celular.', 
+    139.90, 
+    'noturno', 
+    '/static/img/balm.png'
+),
+(
+    'Tônico Esfoliante Noturno AHA + BHA', 
+    'Night Exfoliating Toner • Gentle Renewal Formula • Promotes Even Skin Tone. Renovador celular líquido de uso exclusivo noturno.', 
+    68.00, 
+    'noturno', 
+    '/static/img/esfoliante.png'
 );
+
+
+-- INSERT INTO produtos (produto, descricao, preco, categoria, imagem) VALUES ('Tônico Esfoliante Noturno AHA + BHA', 'Night Exfoliating Toner • Gentle Renewal Formula • Promotes Even Skin Tone. Renovador celular líquido de uso exclusivo noturno.', 68.00, 'noturno', /static/img/esfoliante.png');
