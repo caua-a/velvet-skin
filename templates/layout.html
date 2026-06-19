@@ -7,6 +7,7 @@
     <title>Velvet Skin</title>
     <link rel="stylesheet" href="../static/css/layout.css">
     <link rel="stylesheet" href="../static/css/carrinho.css">
+    <link rel="stylesheet" href="../static/css/index.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -18,6 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
     <script src="../static/js/script.js" defer></script>
+    <script src="{{ url_for('static', filename='js/carrinho.js') }}" defer></script>
 </head>
 
 <body>
@@ -27,7 +29,7 @@
         <nav>
             <a href="/">Início</a>
             <a href="/produtos">Produtos</a>
-            <a href="#" onclick="event.preventDefault(); abrirCarrinho()">Meu Carrinho</a>
+            <!-- <a href="#" onclick="event.preventDefault(); abrirCarrinho()">Meu Carrinho</a> -->
             <div class="dropdown">
                 <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Outros
@@ -42,8 +44,9 @@
                 </ul>
             </div>
         </nav>
+
         <div class="icons">
-            <a href="">
+            <a href="#" onclick="event.preventDefault(); abrirCarrinho()" style="cursor: pointer;">
                 <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"
                     fill="#2F3E1B">
                     <path
@@ -67,6 +70,8 @@
                 </svg>
             </a>
         </div>
+
+        
 
     </header>
 
@@ -144,6 +149,7 @@
             </div>
         </div>
     </footer>
+
 
 </body>
 
