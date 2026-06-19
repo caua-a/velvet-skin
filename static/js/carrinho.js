@@ -1,29 +1,21 @@
-// Função auxiliar para formatar moeda no padrão brasileiro (R$ 129,90)
-
-
-// Função auxiliar para formatar moeda no padrão brasileiro (R$ 129,90)
-// const formatarMoeda = (valor) => {
-//     return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-// };
+// Função auxiliar para formatar moeda no padrão brasileiro
+const formatarMoeda = (valor) => {
+    return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+};
 
 // Funções de Controle Visual do Carrinho
-// Renderizar itens e atualizar totais
-// Função para abrir o carrinho lateral (Adiciona a classe active na overlay)
 function abrirCarrinho() {
     const overlay = document.querySelector(".velvet-cart-overlay");
     if (overlay) {
-        overlay.classList.add("active"); // Certifique-se de que seu CSS usa .active para mostrar o carrinho
-        // Opcional: se o CSS usar display, mude para: overlay.style.display = "flex";
+        overlay.classList.add("active");
     }
-    mostrarCarrinho(); // Atualiza os dados sempre que abrir
+    mostrarCarrinho(); 
 }
 
-// Função para fechar o carrinho lateral
 function fecharCarrinho() {
     const overlay = document.querySelector(".velvet-cart-overlay");
     if (overlay) {
         overlay.classList.remove("active");
-        // Opcional: se o CSS usar display, mude para: overlay.style.display = "none";
     }
 }
 
@@ -37,11 +29,9 @@ async function mostrarCarrinho() {
 
     try {
         const resposta = await fetch("/api/get/carrinho");
-
         if (!resposta.ok) throw new Error("Erro na resposta do servidor");
 
         const dados = await resposta.json();
-        console.log("Dados recebidos do banco:", dados);
 
         if (!dados || dados.length === 0) {
             carrinhoConteudo.innerHTML = `
@@ -57,12 +47,8 @@ async function mostrarCarrinho() {
         let total = 0;
         let htmlAcumulado = ""; 
 
-        const formatarMoeda = (valor) => valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-
         for (let dado of dados) {
             total += dado.preco * dado.quantidade;
-            
-            // Tratamento caso a imagem simulada não comece com /static/
             let caminhoImagem = dado.imagem.startsWith('/static/') ? dado.imagem : `/static/${dado.imagem}`;
 
             htmlAcumulado += `
@@ -72,15 +58,15 @@ async function mostrarCarrinho() {
                         <h3 class="item-title" style="font-size: 14px; margin: 0;">${dado.produto}</h3>
                         <span class="item-price" style="color: #2F3E1B; font-weight: bold;">${formatarMoeda(dado.preco)}</span>
                         <div class="quantity-selector" style="display: flex; align-items: center; margin-top: 5px;">
-                            <button class="qty-btn" onclick="alterarQuantidade(${dado.id_produto}, ${dado.quantidade - 1})">-</button>
+                            <button class="qty-btn" onclick="alterarQuantidade(${dado.id_produto}, ${dado.quantidade - 1}, this)">-</button>
                             <input type="number" value="${dado.quantidade}" min="1" class="qty-input" style="width: 40px; text-align: center;" readonly>
-                            <button class="qty-btn" onclick="alterarQuantidade(${dado.id_produto}, ${dado.quantidade + 1})">+</button>
+                            <button class="qty-btn" onclick="alterarQuantidade(${dado.id_produto}, ${dado.quantidade + 1}, this)">+</button>
                         </div>
                     </div>
                     <button 
                         class="remove-item-btn" 
                         style="background: none; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-bottom: 35px;"
-                        onclick="removerItemCarrinho(${dado.id_produto})"
+                        onclick="removerItemCarrinho(${dado.id_produto}, this)"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#A83232">
                             <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
@@ -91,13 +77,12 @@ async function mostrarCarrinho() {
         }
 
         carrinhoConteudo.innerHTML = htmlAcumulado;
-        
         if (campoTotal) campoTotal.textContent = formatarMoeda(total);
         if (campoSubtotal) campoSubtotal.textContent = formatarMoeda(total);
 
     } catch (erro) {
         console.error("Erro ao carregar o carrinho:", erro);
-        carrinhoConteudo.innerHTML = `<p style="color: red; text-align: center;">Erro ao carregar produtos.</p>`;
+        carrinhoConteudo.innerHTML = `<p style="color: red; text-align: center;">Você precisa estar logado para adicionar itens.</p>`;
     }
 }
 
@@ -115,32 +100,37 @@ async function inserirItemCarrinho(id_produto, quantidade = 1) {
         }
 
         abrirCarrinho(); 
-        // CORREÇÃO AQUI: Espera a resposta do servidor para recarregar os dados na tela
-        await mostrarCarrinho(); 
     } catch (erro) {
         console.error("Erro na requisição:", erro);
     }
 }
 
-async function removerItemCarrinho(id_produto) {
+async function removerItemCarrinho(id_produto, botao) {
+    if(botao) botao.disabled = true; // Previne duplo clique
     try {
         const resposta = await fetch(`/api/delete/item_carrinho/${id_produto}`, {
             method: "DELETE"
         });
 
         if (resposta.ok) {
-            // Recarrega os dados do carrinho na tela imediatamente após deletar
             await mostrarCarrinho();
         } else {
             alert("Erro ao remover o produto do carrinho.");
+            if(botao) botao.disabled = false;
         }
     } catch (erro) {
         console.error("Erro ao deletar item:", erro);
+        if(botao) botao.disabled = false;
     }
 }
 
-async function alterarQuantidade(id_produto, novaQuantidade) {
+async function alterarQuantidade(id_produto, novaQuantidade, botao) {
     if (novaQuantidade < 1) return; 
+    
+    // Desativa temporariamente os botões do seletor para evitar spam de cliques
+    const seletor = botao.parentElement;
+    const botoes = seletor.querySelectorAll('.qty-btn');
+    botoes.forEach(b => b.disabled = true);
     
     try {
         const resposta = await fetch("/api/post/item_carrinho", {
@@ -149,31 +139,28 @@ async function alterarQuantidade(id_produto, novaQuantidade) {
             body: JSON.stringify({ "id_produto": id_produto, "quantidade": novaQuantidade })
         });
 
-        if (!resposta.ok) return;
-        await mostrarCarrinho();
+        if (resposta.ok) {
+            await mostrarCarrinho();
+        } else {
+            alert("Não foi possível atualizar a quantidade.");
+            botoes.forEach(b => b.disabled = false);
+        }
     } catch (erro) {
         console.error("Erro ao alterar quantidade:", erro);
+        botoes.forEach(b => b.disabled = false);
     }
 }
 
 // Inicialização dos eventos ao carregar a página
 document.addEventListener("DOMContentLoaded", () => {
     const btnFechar = document.querySelector(".close-cart-btn");
-    if (btnFechar) {
-        btnFechar.addEventListener("click", fecharCarrinho);
-    }
+    if (btnFechar) btnFechar.addEventListener("click", fecharCarrinho);
 
     const overlay = document.querySelector(".velvet-cart-overlay");
     if (overlay) {
         overlay.addEventListener("click", (e) => {
-            if (e.target === overlay) {
-                fecharCarrinho();
-            }
+            if (e.target === overlay) fecharCarrinho();
         });
     }
-
     mostrarCarrinho();
 });
-
-
-

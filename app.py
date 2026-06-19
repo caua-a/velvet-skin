@@ -68,8 +68,9 @@ def cadastrando():
 @app.route('/produto/<int:id>')
 def detalhe_produtoo(id):
     comentarios = puxar_comentario(id)
+    coment_quant = len(comentarios)
     produto = detalhe_produto(id)
-    return render_template('produto.html', produto=produto, comentarios = comentarios)
+    return render_template('produto.html', produto=produto, comentarios = comentarios, coment_quant = coment_quant)
 
 
 
@@ -145,29 +146,15 @@ def logout():
     return redirect('/')
 
 
-CARRINHO_SIMULADO = [
-    {
-        "id_carrinho": 1,
-        "id_produto": 1,
-        "produto": "Sérum de Ácido Hialurónico",
-        "preco": 24.99,
-        "quantidade": 1,
-        "imagem": "img/creme hidratante bebe.png" 
-    },
-    {
-        "id_carrinho": 2,
-        "id_produto": 3,
-        "produto": "Creme Hidratante Velvet Night",
-        "preco": 29.90,
-        "quantidade": 2,
-        "imagem": "img/creme hidratante bebe.png"
-    }
-]
 
 # --- ROTAS DA API DO CARRINHO (JSON) ---
 
 @app.route("/api/get/carrinho", methods=["GET"])
 def get_carrinho():
+    dados_usuario = session.get('usuario_logado')
+    if not dados_usuario:
+        return redirect('/login') 
+
     try:
         # Busca os itens reais direto do MySQL
         itens_reais = recuperar_itens_carrinho()
@@ -183,8 +170,11 @@ def post_item_carrinho():
         id_produto = int(dados.get("id_produto"))
         quantidade = int(dados.get("quantidade"))
         
-        # Salva ou atualiza no banco de dados MySQL
-        salvar_item_carrinho(id_produto, quantidade)
+        # Recebe do front se deve somar ou não (padrão é False se não enviado)
+        somar = dados.get("somar", False) 
+        
+        # Passa o parâmetro 'somar' para a model atualizada
+        salvar_item_carrinho(id_produto, quantidade, somar=somar)
         
         return jsonify({"status": "sucesso", "mensagem": "Item processado no banco de dados"}), 200
     except Exception as e:
