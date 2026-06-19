@@ -2,40 +2,55 @@
 
 
 // Função auxiliar para formatar moeda no padrão brasileiro (R$ 129,90)
-const formatarMoeda = (valor) => {
-    return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-};
+// const formatarMoeda = (valor) => {
+//     return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+// };
 
+// Funções de Controle Visual do Carrinho
+function abrirCarrinho() {
+    const overlay = document.querySelector(".velvet-cart-overlay");
+    if (overlay) {
+        overlay.classList.add("active");
+        mostrarCarrinho(); // Atualiza os dados sempre que abrir
+    }
+}
+
+function fecharCarrinho() {
+    const overlay = document.querySelector(".velvet-cart-overlay");
+    if (overlay) overlay.classList.remove("active");
+}
+
+// Renderizar itens e atualizar totais
 async function mostrarCarrinho() {
-    const carrinhoConteudo = document.getElementById("carrinho-itens");
+    // Note que alterei para buscar a div do corpo do carrinho dinâmico
+    const carrinhoConteudo = document.querySelector(".cart-body");
     const campoTotal = document.getElementById("valor-total");
 
-    // Elementos de salvaguarda caso não existam na página atual
     if (!carrinhoConteudo || !campoTotal) return;
 
     try {
         const resposta = await fetch("/api/get/carrinho");
 
-        if (!resposta.ok) {
-            throw new Error("Erro na resposta do servidor");
-        }
+        if (!resposta.ok) throw new Error("Erro na resposta do servidor");
 
         const dados = await resposta.json();
         console.log("Dados recebidos do banco:", dados);
 
-        // Se não houver itens, mostra a mensagem de vazio estilizada
         if (!dados || dados.length === 0) {
             carrinhoConteudo.innerHTML = `
                 <div style="text-align: center; color: #707070; margin-top: 40px; font-family: sans-serif;">
                     <p>Sua sacola está vazia =(</p>
                 </div>
             `;
-            campoTotal.textContent = formatarMoeda(0);
+            campoTotal.textContent = "R$ 0,00";
             return;
         }
 
         let total = 0;
         let htmlAcumulado = ""; 
+
+        // Função auxiliar para formatar moeda localmente se não houver a formatarMoeda global
+        const formatarMoeda = (valor) => valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
         for (let dado of dados) {
             total += dado.preco * dado.quantidade;
@@ -76,10 +91,7 @@ async function inserirItemCarrinho(id_produto, quantidade = 1) {
         const resposta = await fetch("/api/post/item_carrinho", {
             method: "POST", 
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                "id_produto": id_produto,
-                "quantidade": quantidade
-            })
+            body: JSON.stringify({ "id_produto": id_produto, "quantidade": quantidade })
         });
 
         if (!resposta.ok) {
@@ -87,7 +99,7 @@ async function inserirItemCarrinho(id_produto, quantidade = 1) {
             return;
         }
 
-        await mostrarCarrinho();
+        abrirCarrinho(); // Abre o carrinho automaticamente ao adicionar um item!
     } catch (erro) {
         console.error("Erro na requisição:", erro);
     }
@@ -98,10 +110,7 @@ async function removerItemCarrinho(id_carrinho, id_produto) {
         const resposta = await fetch("/api/delete/item_carrinho", {
             method: "DELETE", 
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                "id_carrinho": id_carrinho,
-                "id_produto": id_produto
-            })
+            body: JSON.stringify({ "id_carrinho": id_carrinho, "id_produto": id_produto })
         });
 
         if (!resposta.ok) {
@@ -109,25 +118,20 @@ async function removerItemCarrinho(id_carrinho, id_produto) {
             return;
         }
 
-        // CORREÇÃO: Adicionado para fazer o item sumir da tela na hora
         await mostrarCarrinho(); 
     } catch (erro) {
         console.error("Erro na requisição:", erro);
     }
 }
 
-// CORREÇÃO: Função adicionada de volta para os botões + e - funcionarem
 async function alterarQuantidade(id_produto, novaQuantidade) {
-    if (novaQuantidade < 1) return; // Evita que a quantidade seja menor que 1
+    if (novaQuantidade < 1) return; 
     
     try {
         const resposta = await fetch("/api/post/item_carrinho", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                "id_produto": id_produto,
-                "quantidade": novaQuantidade
-            })
+            body: JSON.stringify({ "id_produto": id_produto, "quantidade": novaQuantidade })
         });
 
         if (!resposta.ok) return;
@@ -137,8 +141,25 @@ async function alterarQuantidade(id_produto, novaQuantidade) {
     }
 }
 
-// Inicializa chamando a função quando o documento estiver pronto
+// Inicialização dos eventos ao carregar a página
 document.addEventListener("DOMContentLoaded", () => {
+    // Ouvinte para o botão de fechar (X)
+    const btnFechar = document.querySelector(".close-cart-btn");
+    if (btnFechar) {
+        btnFechar.addEventListener("click", fecharCarrinho);
+    }
+
+    // Fechar ao clicar fora da área branca (na overlay escura)
+    const overlay = document.querySelector(".velvet-cart-overlay");
+    if (overlay) {
+        overlay.addEventListener("click", (e) => {
+            if (e.target === overlay) {
+                fecharCarrinho();
+            }
+        });
+    }
+
+    // Carrega o carrinho inicialmente caso ele comece aberto por algum motivo
     mostrarCarrinho();
 });
 
