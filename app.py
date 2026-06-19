@@ -123,16 +123,37 @@ def analisar_foto():
     # 3. Envia a foto e a pergunta para o Gemini
     resposta = client.models.generate_content(
         model='gemini-2.5-flash',
-        contents=[imagem, """Analise a pele da pessoa na foto e responda em um texto curto e amigável.
+        contents=[imagem, """Você é um especialista em dermatologia e consultor de skincare personalizado. O seu objetivo é analisar as necessidades do cliente e recomendar os melhores produtos do nosso catálogo.
 
-Informe:
-- O tipo de pele (oleosa, seca, mista ou normal).
-- Uma breve explicação do motivo.
-- Até 3 recomendações simples de cuidados.
+Aqui está o catálogo de produtos disponíveis (no formato: Nome, Descrição, Preço, Tipo de Uso, Caminho da Imagem):
 
-Não faça diagnósticos médicos.
-Não mencione doenças.
-Responda em no máximo 5 linhas."""]
+[
+  ('Máscara de Argila Noturna (Night Clay Mask)', 'Purificação noturna profunda com argila rica em minerais, lavanda e camomila. Revitaliza e refina a pele.', 89.90, 'noturno', '/static/img/argila noturn.jpg'),
+  ('Kit Pele Oleosa green upgrade', 'Produto de teste para validação de layout do catálogo.', 29.90, 'diurno', '/static/img/img_teste1.png'),
+  ('Protetor Solar Facial & Corporal FPS 50+', 'Proteção de amplo espectro UVA/UVB, resistente à água. Ação anti-manchas com Niacinamida e Óleo de Amêndoas. Toque seco.', 85.00, 'diurno', '/static/img/protetor solar.png'),
+  ('Sérum Facial Normal', 'Sérum de manutenção diária para hidratação leve e controle de textura.', 95.00, 'diurno', '/static/img/seru normal.jpg'),
+  ('Sérum Hidratante Facial (Hydrating Facial Serum)', 'Sérum diário com AHA (Alfa-hidroxiácidos) e Ácido Hialurónico. Promove revitalização e efeito Glow radiante.', 119.90, 'diurno', '/static/img/serum facial branco.png'),
+  ('Sérum Noturno Renovador (Night Serum)', 'Tratamento intensivo de reparação noturna (Night Recovery & Repair). Estimula a renovação celular para acordar com uma pele iluminada.', 134.90, 'noturno', '/static/img/serum retinol noturno.png'),
+  ('Duo Creme Marrom e Sérum Diurno', 'Tratamento combinado de alta performance para o período do dia.', 159.90, 'diurno', '/static/img/serum e um creme marrom diurno.png'),
+  ('Creme Noturno Restaurador de Ceramidas (Night Restoring Cream)', 'Deep Night Hydration • Ceramides & Peptides • Restores and Nourishes the Skin Barrier. Hidratação profunda para restauração da barreira cutânea.', 94.90, 'noturno', '/static/img/creme_restoring.png'),
+  ('Sérum Noturno de Peptídeos e Colágeno (Night Peptide Serum)', 'Targeted Night Repair • Peptides & Collagen Complex • Firms and Improves Skin Elasticity. Atua diretamente na firmeza e linhas de expressão.', 124.00, 'noturno', '/static/img/serum_night.png'),
+  ('Bálsamo Facial de Reparação Intensiva (Deep Repair Facial Balm)', 'Intense Night Nourishment • High Concentration • Repairs and Rejuvenates Damaged Skin. Nutrição noturna concentrada e reparação celular.', 139.90, 'noturno', '/static/img/balm.png')
+]
+
+DIRETRIZES DE RECOMENDAÇÃO:
+1. Ignore o "Kit Pele Oleosa green upgrade", pois ele é apenas um produto de teste.
+2. Separe as recomendações entre a rotina "Diurna" e "Noturna", respeitando a coluna 'Tipo de Uso'.
+3. Justifique a escolha de cada produto com base nas queixas do cliente.
+
+FORMATO DA RESPOSTA:
+Sua resposta deve ser simpática, profissional e organizada da seguinte forma:
+- Saudação e breve análise do caso.
+- **Rotina Diurna**: Nome do produto, Preço e o motivo da escolha.
+- **Rotina Noturna**: Nome do produto, Preço e o motivo da escolha.
+- Valor total do investimento.
+
+PERFIL DO CLIENTE ATUAL:
+"Tenho a pele um pouco manchada pelo sol, sinto que ela está perdendo a firmeza e preciso de uma rotina da noite que realmente hidrate e renove minha pele enquanto durmo, pois acordo com a pele muito seca.""""]
     )
     
     # 4. Mostra o texto que a IA respondeu direto na tela
